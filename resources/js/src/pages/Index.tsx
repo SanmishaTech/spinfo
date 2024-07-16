@@ -289,7 +289,17 @@ const Index = () => {
                 </div>
                 <div className="panel col-span-2">
                     <div className="flex items-center justify-between mb-5">
-                        <h5 className="font-semibold text-lg dark:text-white-light">Simple Table</h5>
+                        <h5 className="font-semibold text-lg dark:text-white-light">Members</h5>
+                        <button
+                            className="btn btn-primary btn-sm hover:bg-[#1937cc] hover:text-white"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                navigator.clipboard.writeText(`http://localhost:8000/register/${User?.profile?.profile_no}/${User?.profile?.profile_no}`);
+                                toast.success('Copied to clipboard');
+                            }}
+                        >
+                            Copy To Clipboard
+                        </button>
                     </div>
                     <div className="table-responsive mb-5">
                         <table>

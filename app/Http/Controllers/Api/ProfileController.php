@@ -83,17 +83,8 @@ class ProfileController extends BaseController
     {
         $profile = Profile::find($id);
         $user = User::find($profile->user_id);
-        if ($user->hasPermissionTo('update profile')) {
-            // User can edit posts
+       // if ($user->hasPermissionTo('update profile')) {
             
-            // if(!$profile){
-            //     return $this->sendError('Profile Not Found', ['error'=>'Profile not found']);
-            // }
-            // $user = Auth::user();
-            // if($user->id !== $profile->user_id){
-            //     return $this->sendError('Unauthorized', ['error'=>'You are not allowed to update this profile.']);
-            // }
-    
             $profile->name = $request->input('name');
             $profile->mobile = $request->input('mobile');
             $profile->pan = $request->input('pan');
@@ -124,7 +115,7 @@ class ProfileController extends BaseController
     
             return $this->sendResponse(['Profile'=>new ProfileResource($profile)], 'Profile updated successfully.');
     
-        }
+      //  }
 
 
     }

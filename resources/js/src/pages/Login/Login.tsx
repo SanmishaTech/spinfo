@@ -47,7 +47,7 @@ const LoginBoxed = () => {
             navigate('/profiles');
             return;
         } else {
-            navigate('/');
+            navigate('/Index');
         }
     };
 
