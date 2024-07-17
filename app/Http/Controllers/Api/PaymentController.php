@@ -51,12 +51,28 @@ class PaymentController extends BaseController
 
         $parentId = $profile->parent_id;
 
+        $directCommision = 100;
+        $commision = 50;
+
         if($parentId) {
             $parentProfile1 = Profile::find($parentId);
             $parentProfile1->level_1 = $parentProfile1->level_1 + 1;
             $parentProfile1->save();
 
-            Transaction::insertDeposit($parentId, 100);
+            // if($profile->parent_id == $profile->ref_id){
+            //   Transaction::insertDeposit($parentId, $directCommision);
+            // }else{
+            //     Transaction::insertDeposit($parentId, $commision);
+            // }
+
+            if($profile->ref_id == $parentProfile1->id){
+            Transaction::insertDeposit($parentId, $directCommision);
+            }else{
+                Transaction::insertDeposit($parentId, $commision);
+            }
+
+           
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile1->id);
             $parentId = $parentProfile1->parent_id;
         }
@@ -66,7 +82,13 @@ class PaymentController extends BaseController
             $parentProfile2->level_2 = $parentProfile2->level_2 + 1;
             $parentProfile2->save();
             
-            Transaction::insertDeposit($parentId, 100);
+            if($profile->ref_id == $parentProfile2->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+
+          //  Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile2->id);
             $parentId = $parentProfile2->parent_id;
         }
@@ -76,8 +98,12 @@ class PaymentController extends BaseController
             $parentProfile3->level_3 = $parentProfile3->level_3 + 1;
             $parentProfile3->save();
 
-
-            Transaction::insertDeposit($parentId, 100);
+            if($profile->ref_id == $parentProfile3->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile3->id);
             $parentId = $parentProfile3->parent_id;
         }
@@ -87,7 +113,12 @@ class PaymentController extends BaseController
             $parentProfile4->level_4 = $parentProfile4->level_4 + 1;
             $parentProfile4->save();
 
-            Transaction::insertDeposit($parentId, 100);
+            if($profile->ref_id == $parentProfile4->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile4->id);
             $parentId = $parentProfile4->parent_id;
         }
@@ -97,7 +128,13 @@ class PaymentController extends BaseController
             $parentProfile5->level_5 = $parentProfile5->level_5 + 1;
             $parentProfile5->save();
 
-            Transaction::insertDeposit($parentId, 100);
+            if($profile->ref_id == $parentProfile5->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile5->id);
             $parentId = $parentProfile5->parent_id;
         }
@@ -107,7 +144,12 @@ class PaymentController extends BaseController
             $parentProfile6->level_6 = $parentProfile6->level_6 + 1;
             $parentProfile6->save();
 
-            Transaction::insertDeposit($parentId, 100);
+            if($profile->ref_id == $parentProfile6->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile6->id);
             $parentId = $parentProfile6->parent_id;
         }
@@ -117,7 +159,13 @@ class PaymentController extends BaseController
             $parentProfile7->level_7 = $parentProfile7->level_7 + 1;
             $parentProfile7->save();
 
-            Transaction::insertDeposit($parentId, 100);
+           
+            if($profile->ref_id == $parentProfile7->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile7->id);
             $parentId = $parentProfile7->parent_id;
         }
@@ -127,7 +175,13 @@ class PaymentController extends BaseController
             $parentProfile8->level_8 = $parentProfile8->level_8 + 1;
             $parentProfile8->save();
 
-            Transaction::insertDeposit($parentId, 100);
+            if($profile->ref_id == $parentProfile8->id){
+                Transaction::insertDeposit($parentId, $directCommision);
+                }else{
+                    Transaction::insertDeposit($parentId, $commision);
+                }
+
+            // Transaction::insertDeposit($parentId, 100);
             Profile::updateWalletBalance($parentProfile8->id);
         }
 

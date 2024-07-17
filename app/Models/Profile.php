@@ -11,8 +11,8 @@ class Profile extends Model
 {
    use HasFactory;
 
-   public function transaction(){
-      return $this->hasOne(Transaction::class, 'profile_id');
+   public function transaction(){  //hasMany or hasOne
+      return $this->hasMany(Transaction::class, 'profile_id');
   }
 
   public static function updateWalletBalance(string $profile_id)
