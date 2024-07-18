@@ -304,7 +304,7 @@ const Index = () => {
                             className="btn btn-primary btn-sm hover:bg-[#1937cc] hover:text-white"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                navigator.clipboard.writeText(`${window.location.origin}/register/${data?.profile_no}/${User?.profile?.profile_no}`);
+                                navigator.clipboard.writeText(`${window.location.origin}/register/${User?.profile?.profile_no}/${User?.profile?.profile_no}`);
                                 toast.success('Copied to clipboard');
                             }}
                         >
