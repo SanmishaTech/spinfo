@@ -36,7 +36,7 @@ const RegisterBoaxed = () => {
 
     useEffect(() => {
         axios
-            .get(`/api/profiles/${refid}`, {
+            .get(`/api/profiles/${refid}/get_ref_profile`, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
