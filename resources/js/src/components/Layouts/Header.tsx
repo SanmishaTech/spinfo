@@ -154,7 +154,7 @@ const Header = () => {
             );
             toast.success('Logged out successfully');
             console.log(response);
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.log(error);
         }

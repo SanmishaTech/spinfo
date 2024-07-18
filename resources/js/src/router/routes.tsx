@@ -28,7 +28,7 @@ const routes = [
     {
         path: '/login',
         element: <LoginBoxed />,
-        layout: 'default',
+        layout: 'blank',
     },
     {
         path: '/register/:id/:refid',
