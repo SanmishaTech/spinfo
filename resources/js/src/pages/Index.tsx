@@ -300,16 +300,16 @@ const Index = () => {
                 <div className="panel col-span-2">
                     <div className="flex items-center justify-between mb-5">
                         <h5 className="font-semibold text-lg dark:text-white-light">Members</h5>
-                        {/* <button
+                        <button
                             className="btn btn-primary btn-sm hover:bg-[#1937cc] hover:text-white"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                // navigator.clipboard.writeText(`/https://app.spinfocom.net.in/register/${User?.profile?.profile_no}/${User?.profile?.profile_no}`);
+                                navigator.clipboard.writeText(`${window.location.origin}/register/${data?.profile_no}/${User?.profile?.profile_no}`);
                                 toast.success('Copied to clipboard');
                             }}
                         >
                             Copy To Clipboard
-                        </button> */}
+                        </button>
                     </div>
                     <div className="table-responsive mb-5">
                         <table>
