@@ -24,7 +24,8 @@ class UserResource extends JsonResource
             'email_verified_at' => $this->email_verified_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'role' => $this->resource->roles->pluck('name')->toArray(), //another way of getting roles
+            // 'role' => $this->resource->roles->pluck('name')->toArray(), //another way of getting roles
+             'role'=> $this->resource->roles->first()->name,
             'profile' => new ProfileResource($this->whenLoaded('profile')),
         ]; 
 
