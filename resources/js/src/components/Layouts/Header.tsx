@@ -16,10 +16,10 @@ const Header = () => {
     const location = useLocation();
     function getInitials(fullName: string) {
         // Split the full name into an array of words
-        const nameArray = fullName.trim().split(' ');
+        const nameArray = fullName?.trim()?.split(' ');
 
         // Map over the array and get the first letter of each word, then join them
-        const initials = nameArray.map((name) => name.charAt(0).toUpperCase()).join('');
+        const initials = nameArray?.map((name) => name.charAt(0).toUpperCase()).join('');
 
         return initials;
     }
