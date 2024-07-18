@@ -5,14 +5,14 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "https://app.spinfocom.net.in"
+            "value": "http:\/\/localhost:8000"
         }
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "bcc24407-5516-412a-a78b-aa5f2e4a680d",
+        "_postman_id": "7c91b37b-c4b7-4162-9ed4-a8b33ba3585a",
         "description": "",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
@@ -24,14 +24,14 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/payment/:profile_id",
+                            "path": "api\/payment\/:profile_id",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/payment/:profile_id",
+                            "raw": "{{baseUrl}}\/api\/payment\/:profile_id",
                             "variable": [
                                 {
                                     "id": "profile_id",
                                     "key": "profile_id",
-                                    "value": "doloremque",
+                                    "value": "voluptatem",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -40,11 +40,11 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": null,
@@ -62,7 +62,7 @@
                                 },
                                 {
                                     "key": "content-type",
-                                    "value": "application/json"
+                                    "value": "application\/json"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -82,23 +82,23 @@
             "description": "\nAPI for Managing Profile data",
             "item": [
                 {
-                    "name": "GET api/profiles",
+                    "name": "GET api\/profiles",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/profiles",
+                            "path": "api\/profiles",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/profiles"
+                            "raw": "{{baseUrl}}\/api\/profiles"
                         },
                         "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": null,
@@ -116,7 +116,7 @@
                                 },
                                 {
                                     "key": "content-type",
-                                    "value": "application/json"
+                                    "value": "application\/json"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -134,9 +134,9 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/profiles/:id",
+                            "path": "api\/profiles\/:id",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/profiles/:id",
+                            "raw": "{{baseUrl}}\/api\/profiles\/:id",
                             "variable": [
                                 {
                                     "id": "id",
@@ -150,11 +150,11 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": null,
@@ -172,7 +172,7 @@
                                 },
                                 {
                                     "key": "content-type",
-                                    "value": "application/json"
+                                    "value": "application\/json"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -190,14 +190,14 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/profiles/:id",
+                            "path": "api\/profiles\/:id",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/profiles/:id",
+                            "raw": "{{baseUrl}}\/api\/profiles\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "eligendi",
+                                    "value": "perspiciatis",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -206,16 +206,16 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quia\",\"mobile\":\"accusamus\",\"pan\":\"dignissimos\",\"address_1\":\"perferendis\",\"address_2\":\"nobis\",\"city\":\"suscipit\",\"state\":\"consequatur\",\"pincode\":\"deserunt\",\"bank_name\":\"eaque\",\"account_name\":\"deleniti\",\"account_no\":\"fuga\",\"ifsc\":\"ea\",\"business_name\":\"ut\",\"gstin\":\"dolores\"}"
+                            "raw": "{\"name\":\"qui\",\"mobile\":\"id\",\"pan\":\"nobis\",\"address_1\":\"alias\",\"address_2\":\"nobis\",\"city\":\"quibusdam\",\"state\":\"rem\",\"pincode\":\"est\",\"bank_name\":\"fugit\",\"account_name\":\"quae\",\"account_no\":\"aliquid\",\"ifsc\":\"aspernatur\",\"business_name\":\"nam\",\"gstin\":\"sequi\"}"
                         },
                         "description": "",
                         "auth": {
@@ -225,18 +225,18 @@
                     "response": []
                 },
                 {
-                    "name": "GET api/profiles/get_profiles/{parent_id}",
+                    "name": "GET api\/profiles\/{parent_id}\/get_profiles",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/profiles/get_profiles/:parent_id",
+                            "path": "api\/profiles\/:parent_id\/get_profiles",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/profiles/get_profiles/:parent_id",
+                            "raw": "{{baseUrl}}\/api\/profiles\/:parent_id\/get_profiles",
                             "variable": [
                                 {
                                     "id": "parent_id",
                                     "key": "parent_id",
-                                    "value": "commodi",
+                                    "value": "suscipit",
                                     "description": "The ID of the parent."
                                 }
                             ]
@@ -245,11 +245,11 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": null,
@@ -267,7 +267,7 @@
                                 },
                                 {
                                     "key": "content-type",
-                                    "value": "application/json"
+                                    "value": "application\/json"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -276,6 +276,70 @@
                             ],
                             "code": 401,
                             "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/profiles\/{profile_no}\/get_ref_profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/:profile_no\/get_ref_profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/:profile_no\/get_ref_profile",
+                            "variable": [
+                                {
+                                    "id": "profile_no",
+                                    "key": "profile_no",
+                                    "value": "non",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\" Profiles Retrived successfully\",\"data\":{\"Profiles\":[]}}",
                             "name": ""
                         }
                     ]
@@ -291,24 +355,24 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/register",
+                            "path": "api\/register",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/register"
+                            "raw": "{{baseUrl}}\/api\/register"
                         },
                         "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"mx\",\"email\":\"ecassin@example.com\",\"mobile\":\"+:6\",\"pan\":\"BcQrU3139N\",\"password\":\"p373pwEC4\",\"password_confirmation\":\"consequatur\",\"parent_id\":\"ea\",\"ref_id\":\"qui\"}"
+                            "raw": "{\"name\":\"oncppomr\",\"email\":\"doug.bailey@example.org\",\"mobile\":\"+(:6\",\"pan\":\"EYqvJ3430(o\",\"password\":\".YjF<7*7*N@KJUTSC\",\"password_confirmation\":\"esse\",\"parent_id\":\"iure\",\"ref_id\":\"qui\"}"
                         },
                         "description": "",
                         "auth": {
@@ -322,24 +386,24 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/login",
+                            "path": "api\/login",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/login"
+                            "raw": "{{baseUrl}}\/api\/login"
                         },
                         "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"daniela.cartwright@example.net\",\"password\":\"q@8K3na)m\"}"
+                            "raw": "{\"email\":\"kortiz@example.com\",\"password\":\"Y\\\/4Jd0>y<I:\\\"cJh?.K\"}"
                         },
                         "description": "",
                         "auth": {
@@ -353,19 +417,19 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api/logout",
+                            "path": "api\/logout",
                             "query": [],
-                            "raw": "{{baseUrl}}/api/logout"
+                            "raw": "{{baseUrl}}\/api\/logout"
                         },
                         "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application/json"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
-                                "value": "application/json"
+                                "value": "application\/json"
                             }
                         ],
                         "body": null,

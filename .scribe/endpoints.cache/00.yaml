@@ -33,7 +33,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: mx
+        example: oncppomr
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ecassin@example.com
+        example: doug.bailey@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -51,7 +51,7 @@ endpoints:
         name: mobile
         description: 'Must match the regex /^\+(?:\d{1}.'
         required: true
-        example: '+:6'
+        example: '+(:6'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -60,7 +60,7 @@ endpoints:
         name: pan
         description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
         required: true
-        example: BcQrU3139N
+        example: EYqvJ3430(o
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -69,7 +69,7 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: p373pwEC4
+        example: '.YjF<7*7*N@KJUTSC'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -78,7 +78,7 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: consequatur
+        example: esse
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -87,7 +87,7 @@ endpoints:
         name: parent_id
         description: ''
         required: true
-        example: ea
+        example: iure
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -102,13 +102,13 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: mx
-      email: ecassin@example.com
-      mobile: '+:6'
-      pan: BcQrU3139N
-      password: p373pwEC4
-      password_confirmation: consequatur
-      parent_id: ea
+      name: oncppomr
+      email: doug.bailey@example.org
+      mobile: '+(:6'
+      pan: EYqvJ3430(o
+      password: '.YjF<7*7*N@KJUTSC'
+      password_confirmation: esse
+      parent_id: iure
       ref_id: qui
     fileParameters: []
     responses: []
@@ -146,7 +146,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: daniela.cartwright@example.net
+        example: kortiz@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -155,14 +155,14 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: q@8K3na)m
+        example: 'Y/4Jd0>y<I:"cJh?.K'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: daniela.cartwright@example.net
-      password: q@8K3na)m
+      email: kortiz@example.com
+      password: 'Y/4Jd0>y<I:"cJh?.K'
     fileParameters: []
     responses: []
     responseFields: []

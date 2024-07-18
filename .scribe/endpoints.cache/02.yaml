@@ -25,13 +25,13 @@ endpoints:
         name: profile_id
         description: 'The ID of the profile.'
         required: true
-        example: doloremque
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      profile_id: doloremque
+      profile_id: voluptatem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
