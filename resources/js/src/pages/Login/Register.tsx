@@ -28,14 +28,24 @@ type LoginFormInputs = z.infer<typeof registerSchema>;
 const RegisterBoaxed = () => {
     const [uniqueData, setUniqueData] = useState<any>({});
     const [phone, setPhone] = useState<Number | null>(null);
+    const [profiles, setProfiles] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { id, refid } = useParams();
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
 
     useEffect(() => {
-        dispatch(setPageTitle('Register Boxed'));
-    }, [dispatch]);
+        axios
+            .get(`/api/profiles/${refid}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            })
+            .then((response: any) => {
+                setProfiles(response?.data?.data?.Profiles);
+            });
+    }, []);
 
     const {
         register,
@@ -50,7 +60,7 @@ const RegisterBoaxed = () => {
             const response = await axios.post('/api/register', data);
             console.log(response);
             toast.success('Registration successful');
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.log(error);
             if (error.response.data.data.email) {
@@ -84,6 +94,7 @@ const RegisterBoaxed = () => {
                 <div className=" panel sm:w-[450px] min-h-[400px] m-6 max-w-lg w-full">
                     <h2 className="font-bold text-2xl mb-3">Sign Up</h2>
                     <p className="mb-7">Enter your email and password to Register</p>
+                    <p> You are Reffered By {profiles?.length ? profiles[0]?.name : ''}</p>
                     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label htmlFor="name">Name</label>

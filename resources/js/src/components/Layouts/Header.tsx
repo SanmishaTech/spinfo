@@ -14,6 +14,15 @@ import { toast } from 'sonner';
 const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    function getInitials(fullName: string) {
+        // Split the full name into an array of words
+        const nameArray = fullName.trim().split(' ');
+
+        // Map over the array and get the first letter of each word, then join them
+        const initials = nameArray.map((name) => name.charAt(0).toUpperCase()).join('');
+
+        return initials;
+    }
     useEffect(() => {
         const selector = document.querySelector('ul.horizontal-menu a[href="' + window.location.pathname + '"]');
         if (selector) {
@@ -157,8 +166,8 @@ const Header = () => {
                 <div className="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-black">
                     <div className="horizontal-logo flex lg:hidden justify-between items-center ltr:mr-2 rtl:ml-2">
                         <Link to="/" className="main-logo flex items-center shrink-0">
-                            <img className="w-8 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/spinfo_logo2.png" alt="logo" />
-                            <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">SP INFO</span>
+                            <img className="w-8 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/logo.svg" alt="logo" />
+                            <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">VRISTO</span>
                         </Link>
                         <button
                             type="button"
@@ -201,12 +210,18 @@ const Header = () => {
                                 offset={[0, 8]}
                                 placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
                                 btnClassName="relative group block"
-                                button={<img className="w-9 h-9 rounded-full object-cover saturate-50 group-hover:saturate-100" src="/assets/images/user-profile.jpeg" alt="userProfile" />}
+                                button={
+                                    <span className="flex justify-center items-center w-9 h-9 text-center rounded-full object-cover bg-success text-md text-white">
+                                        {getInitials(User?.profile?.name)}
+                                    </span>
+                                }
                             >
                                 <ul className="text-dark dark:text-white-dark !py-0 w-[230px] font-semibold dark:text-white-light/90">
                                     <li>
                                         <div className="flex items-center px-4 py-4">
-                                            <img className="rounded-md w-10 h-10 object-cover" src="/assets/images/user-profile.jpeg" alt="userProfile" />
+                                            <span className="flex justify-center items-center w-20 h-20 text-center rounded-full object-cover bg-success text-2xl text-white">
+                                                {getInitials(User?.profile?.name)}
+                                            </span>
                                             <div className="ltr:pl-4 rtl:pr-4 truncate">
                                                 <h4 className="text-base">
                                                     {User?.profile?.name}

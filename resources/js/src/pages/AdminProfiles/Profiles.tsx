@@ -12,9 +12,7 @@ const Profiles = () => {
     const navigate = useNavigate();
     const [profileList, setProfileList] = useState([]);
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(setPageTitle('Tables'));
-    });
+
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
 
     const [tabs, setTabs] = useState<string[]>([]);

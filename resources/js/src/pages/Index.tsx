@@ -9,7 +9,9 @@ import { Formatcurrency } from '../components/CurrencyComponent';
 
 const Index = () => {
     const themeConfig = useSelector((state: IRootState) => state.themeConfig);
+
     const dispatch = useDispatch();
+    const [PaymentDone, setPaymentDone] = useState(false);
     const [showProfileWarning, setShowProfileWarning] = useState(true);
     const [Profiles, setProfiles] = useState([]);
     useEffect(() => {
@@ -27,12 +29,17 @@ const Index = () => {
     const Navigate = useNavigate();
     const callapi = async () => {
         try {
-            const response = await axios.get(`/api/payment/${User.profile.id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                },
-            });
+            const response = await axios
+                .get(`/api/payment/${User.profile.id}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
+                    },
+                })
+                .then((response: any) => {
+                    setPaymentDone(true);
+                    toast.success('Payment done Successly.');
+                });
             console.log(response);
         } catch (error) {
             console.log(error);
@@ -49,6 +56,7 @@ const Index = () => {
                 })
                 .then((response: any) => {
                     setProfiles(response?.data?.data?.Profiles);
+                    // window.location.reload();
                 });
             console.log(response);
         };
@@ -105,7 +113,7 @@ const Index = () => {
                         </span>
                         <button
                             onClick={() => {
-                                Navigate('users/profile');
+                                Navigate('/users/profile');
                             }}
                             type="button"
                             className="btn btn-sm bg-white text-black ltr:ml-auto rtl:mr-auto max-md:mt-2 max-md: self-start"
@@ -144,20 +152,22 @@ const Index = () => {
                             </svg>
                         </div>
                         <h5 className="text-lg font-semibold mb-3.5 dark:text-white-light">Make Payment</h5>
-                        <p className="text-white-dark text-[15px]  mb-3.5">You have not made any payments yet.</p>
-                        <button onClick={callapi} type="button" className="text-primary font-semibold hover:underline group">
-                            Make Payment{' '}
-                            <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-4 h-4 ltr:ml-1 rtl:mr-1 inline-block relative transition-all duration-300 group-hover:translate-x-2 rtl:group-hover:-translate-x-2 rtl:rotate-180"
-                            >
-                                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button>
+                        <p className="text-white-dark text-[15px]  mb-3.5">{User.profile.profile_no ? 'You have Already Made your payment' : 'You have not made any payments yet.'}</p>
+                        {!User.profile.profile_no && (
+                            <button onClick={callapi} type="button" className="text-primary font-semibold hover:underline group">
+                                Make Payment{' '}
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-4 h-4 ltr:ml-1 rtl:mr-1 inline-block relative transition-all duration-300 group-hover:translate-x-2 rtl:group-hover:-translate-x-2 rtl:rotate-180"
+                                >
+                                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
+                        )}
                     </div>
                 </div>
                 <div className="max-md:col-span-2">
@@ -290,16 +300,16 @@ const Index = () => {
                 <div className="panel col-span-2">
                     <div className="flex items-center justify-between mb-5">
                         <h5 className="font-semibold text-lg dark:text-white-light">Members</h5>
-                        <button
+                        {/* <button
                             className="btn btn-primary btn-sm hover:bg-[#1937cc] hover:text-white"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                navigator.clipboard.writeText(`http://localhost:8000/register/${User?.profile?.profile_no}/${User?.profile?.profile_no}`);
+                                // navigator.clipboard.writeText(`/https://app.spinfocom.net.in/register/${User?.profile?.profile_no}/${User?.profile?.profile_no}`);
                                 toast.success('Copied to clipboard');
                             }}
                         >
                             Copy To Clipboard
-                        </button>
+                        </button> */}
                     </div>
                     <div className="table-responsive mb-5">
                         <table>
@@ -323,7 +333,7 @@ const Index = () => {
                                                         className="btn btn-primary btn-sm hover:bg-[#1937cc] hover:text-white"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
-                                                            navigator.clipboard.writeText(`http://localhost:8000/register/${data?.profile_no}/${User?.profile?.profile_no}`);
+                                                            navigator.clipboard.writeText(`${window.location.origin}/register/${data?.profile_no}/${User?.profile?.profile_no}`);
                                                             toast.success('Copied to clipboard');
                                                         }}
                                                     >

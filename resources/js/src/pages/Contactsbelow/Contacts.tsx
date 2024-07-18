@@ -46,14 +46,18 @@ const Contacts = () => {
                                 User?.profile &&
                                 Profiles?.map((data, index) => {
                                     return (
-                                        <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`http://localhost:8000/register/${data?.profile_no}/${User?.profile?.profile_no}`, '_blank')} key={data?.id}>
+                                        <tr
+                                            className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer"
+                                            onClick={() => window.open(`/register/${data?.profile_no}/${User?.profile?.profile_no}`, '_blank')}
+                                            key={data?.id}
+                                        >
                                             <td>{data?.profile_no}</td>
                                             <td>{data?.name}</td>
                                             <td>
                                                 <button
                                                     onClick={(e) => {
                                                         e.stopPropagation();
-                                                        navigator.clipboard.writeText(`http://localhost:8000/register/${data?.profile_no}/${User?.profile?.profile_no}`);
+                                                        navigator.clipboard.writeText(`/register/${data?.profile_no}/${User?.profile?.profile_no}`);
                                                         toast.success('Copied to clipboard');
                                                     }}
                                                 >

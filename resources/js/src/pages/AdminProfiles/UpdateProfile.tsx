@@ -67,9 +67,6 @@ const UpdateProfile = () => {
     const { ProfileEditIsTrue } = useSelector((state: IRootState) => state.themeConfig);
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
     const { id } = useParams();
-    useEffect(() => {
-        dispatch(setPageTitle('Register Boxed'));
-    }, [dispatch]);
 
     const {
         register,

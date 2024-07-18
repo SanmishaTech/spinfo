@@ -4,8 +4,7 @@ info:
   description: ''
   version: 1.0.0
 servers:
-  -
-    url: 'http://localhost:8000'
+  - url: ''
 paths:
   '/api/payment/{profile_id}':
     get:
@@ -30,8 +29,7 @@ paths:
         - 'Payment Management'
       security: []
     parameters:
-      -
-        in: path
+      - in: path
         name: profile_id
         description: 'The ID of the profile.'
         example: doloremque
@@ -87,7 +85,7 @@ paths:
       operationId: updateProfile
       description: ''
       parameters: []
-      responses: {  }
+      responses: {}
       tags:
         - 'Profile Management'
       requestBody:
@@ -155,8 +153,7 @@ paths:
                   example: dolores
       security: []
     parameters:
-      -
-        in: path
+      - in: path
         name: id
         description: 'The ID of the profile.'
         example: sed
@@ -186,8 +183,7 @@ paths:
         - 'Profile Management'
       security: []
     parameters:
-      -
-        in: path
+      - in: path
         name: parent_id
         description: 'The ID of the parent.'
         example: commodi
@@ -200,7 +196,7 @@ paths:
       operationId: registerUser
       description: ''
       parameters: []
-      responses: {  }
+      responses: {}
       tags:
         - 'User Management'
       requestBody:
@@ -258,7 +254,7 @@ paths:
       operationId: loginUser
       description: ''
       parameters: []
-      responses: {  }
+      responses: {}
       tags:
         - 'User Management'
       requestBody:
@@ -286,19 +282,16 @@ paths:
       operationId: logoutUser
       description: ''
       parameters: []
-      responses: {  }
+      responses: {}
       tags:
         - 'User Management'
       security: []
 tags:
-  -
-    name: 'Payment Management'
+  - name: 'Payment Management'
     description: ' `'
-  -
-    name: 'Profile Management'
+  - name: 'Profile Management'
     description: "\nAPI for Managing Profile data"
-  -
-    name: 'User Management'
+  - name: 'User Management'
     description: "\nAPI for Managing Users"
 components:
   securitySchemes:
@@ -307,5 +300,4 @@ components:
       scheme: bearer
       description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
 security:
-  -
-    default: []
+  - default: []

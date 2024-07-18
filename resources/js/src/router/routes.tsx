@@ -13,10 +13,10 @@ const routes = [
     {
         path: '/',
         element: <LoginBoxed />,
-        layout: 'default',
+        layout: 'blank',
     },
     {
-        path: '/Index',
+        path: '/dashboard',
         element: <Index />,
         layout: 'default',
     },
@@ -33,25 +33,25 @@ const routes = [
     {
         path: '/register/:id/:refid',
         element: <Register />,
-        layout: 'default',
+        layout: 'blank',
     },
     {
-        path: 'users/profile',
+        path: '/users/profile',
         element: <UpdateProfile />,
         layout: 'default',
     },
     {
-        path: 'profiles',
+        path: '/profiles',
         element: <AdminProfiles />,
         layout: 'default',
     },
     {
-        path: 'profile/:id',
+        path: '/profile/:id',
         element: <AdminEditProfile />,
         layout: 'default',
     },
     {
-        path: 'contactedit/:id',
+        path: '/contactedit/:id',
         element: <Contact />,
         layout: 'default',
     },

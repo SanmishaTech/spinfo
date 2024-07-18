@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IRootState } from '../../store';
 import { setPageTitle } from '../../store/themeConfigSlice';
 import axios from 'axios';
+import { toast } from 'sonner';
 
 // Define the validation schema using Zod
 const loginSchema = z.object({
@@ -23,9 +24,6 @@ const LoginBoxed = () => {
     const navigate = useNavigate();
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
     const [isAdmin, setIsAdmin] = useState(false);
-    useEffect(() => {
-        dispatch(setPageTitle('Login Boxed'));
-    }, [dispatch]);
 
     const {
         register,
@@ -36,18 +34,23 @@ const LoginBoxed = () => {
         resolver: zodResolver(loginSchema),
     });
     const CallApi = async (data: LoginFormInputs) => {
-        const response = await axios.post('http://localhost:8000/api/login', data);
-        console.log(response);
-        if (response.data) {
-            localStorage.setItem('user', JSON.stringify(response.data.data.user));
-            localStorage.setItem('token', response.data.data.token);
-        }
-        console.log('BOOL', isAdmin);
-        if (isAdmin) {
-            navigate('/profiles');
-            return;
-        } else {
-            navigate('/Index');
+        try {
+            const response = await axios.post('http://localhost:8000/api/login', data);
+            console.log(response);
+            if (response.data) {
+                localStorage.setItem('user', JSON.stringify(response.data.data.user));
+                localStorage.setItem('token', response.data.data.token);
+            }
+            console.log('BOOL', isAdmin);
+            if (response.data.data.user.role === 'admin') {
+                navigate('/profiles');
+                return;
+            } else {
+                navigate('/dashboard');
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data.data.error);
         }
     };
 
@@ -77,25 +80,11 @@ const LoginBoxed = () => {
                             <input id="password" type="password" {...register('password')} className="form-input" placeholder="Enter Password" />
                             {errors.password && <span className="text-red-600">{errors.password.message}</span>}
                         </div>
-                        <div className="flex items-center text-center gap-4">
-                            <label className="text-sm text-center" htmlFor="isAdmin">
-                                Admin
-                            </label>
-                            <input id="isAdmin" type="checkbox" onChange={(e) => setIsAdmin(e.target.checked)} value="true" placeholder="Enter Password" />
-                            {errors.isAdmin && <span className="text-red-600">{errors.isAdmin.message}</span>}
-                        </div>
 
                         <button type="submit" className="btn btn-primary w-full">
                             SIGN IN
                         </button>
                     </form>
-
-                    <p className="text-center mt-8">
-                        Don&apos;t have an account ?
-                        <Link to="/register" className="font-bold text-primary hover:underline ltr:ml-1 rtl:mr-1">
-                            Sign Up
-                        </Link>
-                    </p>
                 </div>
             </div>
         </div>

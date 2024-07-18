@@ -61,9 +61,6 @@ const UpdateProfile = () => {
     const navigate = useNavigate();
     const [defaultData, setDefaultData] = useState<any>({});
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-    useEffect(() => {
-        dispatch(setPageTitle('Register Boxed'));
-    }, [dispatch]);
 
     const {
         register,
@@ -143,13 +140,13 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="max-h-[100vh] flex justify-center items-center mb-[70px]">
+        <div className="max-h-[100vh] flex justify-center items-center mb-[70px] p-2">
             <div className=" h-full w-[90%] mt-[150px] ">
-                <h2 className="font-bold text-2xl mb-3">Update Profile</h2>
+                <h2 className="font-bold text-2xl ">Update Profile</h2>
                 <p className="mb-7">Enter your details to Update</p>
                 <form className=" grid grid-cols-2  justify-items-center mb-[50px] bg-slate-50 rounded-md p-6 " onSubmit={handleSubmit(onSubmit)}>
                     <div style={{ backgroundColor: '#FFFFFF' }} className=" w-full flex flex-col justify-center col-span-2 max-h-[490px]  ">
-                        <div className=" flex flex-col justify-center mt-[20px]">
+                        <div className=" flex flex-col justify-center">
                             <label htmlFor="Personal" className="font-bold text-[20px] mb-6">
                                 Personal Details
                             </label>

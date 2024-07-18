@@ -51,7 +51,7 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname === '/login' || location.pathname === '/register') {
+        if (location.pathname === '/' || location.pathname === '/register?:id/:refid') {
             setShowHeader(false);
         }
     }, [location]);

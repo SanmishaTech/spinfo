@@ -136,7 +136,7 @@ const themeConfigSlice = createSlice({
         },
 
         setPageTitle(state, { payload }) {
-            document.title = `${payload} | VRISTO - Multipurpose Tailwind Dashboard Template`;
+            document.title = `${payload} | Sp Info`;
         },
         toggleProfileEdit(state) {
             state.ProfileEditIsTrue = !state.ProfileEditIsTrue;
