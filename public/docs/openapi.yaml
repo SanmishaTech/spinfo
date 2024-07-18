@@ -5,83 +5,9 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost:8000'
+    url: 'https://app.spinfocom.net.in'
 paths:
-  '/api/payment/{profile_id}':
-    get:
-      summary: 'Show Payment'
-      operationId: showPayment
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - 'Payment Management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: profile_id
-        description: 'The ID of the profile.'
-        example: voluptatem
-        required: true
-        schema:
-          type: string
-  /api/profiles:
-    get:
-      summary: ''
-      operationId: getApiProfiles
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - 'Profile Management'
-      security: []
   '/api/profiles/{id}':
-    get:
-      summary: 'Show Profile'
-      operationId: showProfile
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - 'Profile Management'
-      security: []
     put:
       summary: 'Update Profile'
       operationId: updateProfile
@@ -100,140 +26,66 @@ paths:
                 name:
                   type: string
                   description: 'The name of the user.'
-                  example: qui
+                  example: nulla
                 mobile:
                   type: string
                   description: 'The mobile number of the user.'
-                  example: id
+                  example: est
                 pan:
                   type: string
                   description: 'The pan number of the user.'
-                  example: nobis
+                  example: blanditiis
                 address_1:
                   type: string
                   description: 'The address_1 of the user.'
-                  example: alias
+                  example: est
                 address_2:
                   type: string
                   description: 'The address_1 of the user.'
-                  example: nobis
+                  example: quidem
                 city:
                   type: string
                   description: 'The city of the user.'
-                  example: quibusdam
+                  example: itaque
                 state:
                   type: string
                   description: 'The state of the user.'
-                  example: rem
+                  example: odio
                 pincode:
                   type: string
                   description: 'The pincode of the user.'
-                  example: est
+                  example: quis
                 bank_name:
                   type: string
                   description: 'The bank name of the user.'
-                  example: fugit
+                  example: alias
                 account_name:
                   type: string
                   description: 'The account name of the user.'
-                  example: quae
+                  example: impedit
                 account_no:
                   type: string
                   description: 'The account number of the user.'
-                  example: aliquid
+                  example: eos
                 ifsc:
                   type: string
                   description: 'The ifsc number of the user.'
-                  example: aspernatur
+                  example: atque
                 business_name:
                   type: string
                   description: 'The business_name of the user.'
-                  example: nam
+                  example: soluta
                 gstin:
                   type: string
                   description: 'The gstin of the user.'
-                  example: sequi
+                  example: qui
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the profile.'
-        example: sed
-        required: true
-        schema:
-          type: string
-  '/api/profiles/{parent_id}/get_profiles':
-    get:
-      summary: ''
-      operationId: getApiProfilesParent_idGet_profiles
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - 'Profile Management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: parent_id
-        description: 'The ID of the parent.'
-        example: suscipit
-        required: true
-        schema:
-          type: string
-  '/api/profiles/{profile_no}/get_ref_profile':
-    get:
-      summary: ''
-      operationId: getApiProfilesProfile_noGet_ref_profile
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  success: true
-                  message: ' Profiles Retrived successfully'
-                  data:
-                    Profiles: []
-                properties:
-                  success:
-                    type: boolean
-                    example: true
-                  message:
-                    type: string
-                    example: ' Profiles Retrived successfully'
-                  data:
-                    type: object
-                    properties:
-                      Profiles:
-                        type: array
-                        example: []
-      tags:
-        - 'Profile Management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: profile_no
-        description: ''
-        example: non
+        example: eos
         required: true
         schema:
           type: string
@@ -256,35 +108,35 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: oncppomr
+                  example: yttarhvifrg
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: doug.bailey@example.org
+                  example: karolann46@example.org
                 mobile:
                   type: string
                   description: 'Must match the regex /^\+(?:\d{1}.'
-                  example: '+(:6'
+                  example: '+(:4'
                 pan:
                   type: string
                   description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
-                  example: EYqvJ3430(o
+                  example: bKEbO8507a
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: '.YjF<7*7*N@KJUTSC'
+                  example: 'VO[{`R0'
                 password_confirmation:
                   type: string
                   description: ''
-                  example: esse
+                  example: et
                 parent_id:
                   type: string
                   description: ''
-                  example: iure
+                  example: quod
                 ref_id:
                   type: string
                   description: ''
-                  example: qui
+                  example: iure
               required:
                 - name
                 - email
@@ -314,11 +166,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: kortiz@example.com
+                  example: jmedhurst@example.org
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: 'Y/4Jd0>y<I:"cJh?.K'
+                  example: 'sA,N?''"'
               required:
                 - email
                 - password
@@ -334,9 +186,6 @@ paths:
         - 'User Management'
       security: []
 tags:
-  -
-    name: 'Payment Management'
-    description: ' `'
   -
     name: 'Profile Management'
     description: "\nAPI for Managing Profile data"

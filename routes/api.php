@@ -33,6 +33,6 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
 });
 
-Route::get('profiles/{profile_no}/get_ref_profile', [ProfileController::class, 'getProfileByProfileNo']);  //this must be get
+Route::get('profiles/{profile_no}/get_ref_profile', [ProfileController::class, 'getProfileByProfileNo'])->where('profile_no', '[A-Za-z0-9]+');  //this must be get
 
 

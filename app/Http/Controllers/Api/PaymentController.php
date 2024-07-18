@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Profile;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ProfileNumberService;
 use App\Http\Resources\ProfileResource;
@@ -193,8 +195,9 @@ class PaymentController extends BaseController
          * In seed add Admin User with admin role and top@spinfo with profile with member role
          * While registerting user is always a member
          */
-
-        return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Payment done Successly.');
+            $user = User::find($profile->user_id);
+            $user->load('profile');
+        return $this->sendResponse(['user'=>new UserResource($user)], 'Payment done Successly.');
     }
 
 }

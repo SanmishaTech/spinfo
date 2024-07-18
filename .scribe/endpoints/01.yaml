@@ -5,100 +5,6 @@ description: |-
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/profiles
-    metadata:
-      groupName: 'Profile Management'
-      groupDescription: |-
-
-        API for Managing Profile data
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-      Authorization: 'Bearer '
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/profiles/{id}'
-    metadata:
-      groupName: 'Profile Management'
-      groupDescription: |-
-
-        API for Managing Profile data
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Show Profile'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-      Authorization: 'Bearer '
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the profile.'
-        required: true
-        example: sed
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      id: sed
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - PUT
       - PATCH
     uri: 'api/profiles/{id}'
@@ -122,13 +28,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: perspiciatis
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: perspiciatis
+      id: eos
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -136,7 +42,7 @@ endpoints:
         name: name
         description: 'The name of the user.'
         required: false
-        example: qui
+        example: nulla
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -145,7 +51,7 @@ endpoints:
         name: mobile
         description: 'The mobile number of the user.'
         required: false
-        example: id
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -154,7 +60,7 @@ endpoints:
         name: pan
         description: 'The pan number of the user.'
         required: false
-        example: nobis
+        example: blanditiis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -163,7 +69,7 @@ endpoints:
         name: address_1
         description: 'The address_1 of the user.'
         required: false
-        example: alias
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -172,7 +78,7 @@ endpoints:
         name: address_2
         description: 'The address_1 of the user.'
         required: false
-        example: nobis
+        example: quidem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -181,7 +87,7 @@ endpoints:
         name: city
         description: 'The city of the user.'
         required: false
-        example: quibusdam
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -190,7 +96,7 @@ endpoints:
         name: state
         description: 'The state of the user.'
         required: false
-        example: rem
+        example: odio
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -199,7 +105,7 @@ endpoints:
         name: pincode
         description: 'The pincode of the user.'
         required: false
-        example: est
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -208,7 +114,7 @@ endpoints:
         name: bank_name
         description: 'The bank name of the user.'
         required: false
-        example: fugit
+        example: alias
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -217,7 +123,7 @@ endpoints:
         name: account_name
         description: 'The account name of the user.'
         required: false
-        example: quae
+        example: impedit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -226,7 +132,7 @@ endpoints:
         name: account_no
         description: 'The account number of the user.'
         required: false
-        example: aliquid
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -235,7 +141,7 @@ endpoints:
         name: ifsc
         description: 'The ifsc number of the user.'
         required: false
-        example: aspernatur
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -244,7 +150,7 @@ endpoints:
         name: business_name
         description: 'The business_name of the user.'
         required: false
-        example: nam
+        example: soluta
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,134 +159,28 @@ endpoints:
         name: gstin
         description: 'The gstin of the user.'
         required: false
-        example: sequi
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: qui
-      mobile: id
-      pan: nobis
-      address_1: alias
-      address_2: nobis
-      city: quibusdam
-      state: rem
-      pincode: est
-      bank_name: fugit
-      account_name: quae
-      account_no: aliquid
-      ifsc: aspernatur
-      business_name: nam
-      gstin: sequi
+      name: nulla
+      mobile: est
+      pan: blanditiis
+      address_1: est
+      address_2: quidem
+      city: itaque
+      state: odio
+      pincode: quis
+      bank_name: alias
+      account_name: impedit
+      account_no: eos
+      ifsc: atque
+      business_name: soluta
+      gstin: qui
     fileParameters: []
     responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/profiles/{parent_id}/get_profiles'
-    metadata:
-      groupName: 'Profile Management'
-      groupDescription: |-
-
-        API for Managing Profile data
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-      Authorization: 'Bearer '
-    urlParameters:
-      parent_id:
-        name: parent_id
-        description: 'The ID of the parent.'
-        required: true
-        example: suscipit
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      parent_id: suscipit
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/profiles/{profile_no}/get_ref_profile'
-    metadata:
-      groupName: 'Profile Management'
-      groupDescription: |-
-
-        API for Managing Profile data
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-      Authorization: 'Bearer '
-    urlParameters:
-      profile_no:
-        name: profile_no
-        description: ''
-        required: true
-        example: non
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      profile_no: non
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"success":true,"message":" Profiles Retrived successfully","data":{"Profiles":[]}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
     responseFields: []
     auth: []
     controller: null

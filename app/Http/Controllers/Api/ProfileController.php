@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ProfileNumberService;
@@ -33,7 +34,7 @@ class ProfileController extends BaseController
     }
 
       /*
-       * Get Verified Profiles
+       * Get Profiles
        */
       public function getProfiles(string $id): JsonResponse
       {
@@ -42,9 +43,13 @@ class ProfileController extends BaseController
           return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
       }
 
+       /*
+       * Get Ref Profile
+       */
       public function getProfileByProfileNo(string $profile_no): JsonResponse
       {
          // $user = Auth::user();
+         Log::info('Fetching profile for profile_no: ' . $profile_no);
           $profile = Profile::where('profile_no',$profile_no)->get();
           return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
       }
