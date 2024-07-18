@@ -35,7 +35,7 @@ const LoginBoxed = () => {
     });
     const CallApi = async (data: LoginFormInputs) => {
         try {
-            const response = await axios.post('http://localhost:8000/api/login', data);
+            const response = await axios.post('/api/login', data);
             console.log(response);
             if (response.data) {
                 localStorage.setItem('user', JSON.stringify(response.data.data.user));
