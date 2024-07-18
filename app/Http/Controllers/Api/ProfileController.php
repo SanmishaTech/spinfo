@@ -42,6 +42,13 @@ class ProfileController extends BaseController
           return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
       }
 
+      public function getProfileByProfileNo(string $profile_no): JsonResponse
+      {
+         // $user = Auth::user();
+          $profile = Profile::where('profile_no',$profile_no)->get();
+          return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
+      }
+
 
      /**
      *  Show Profile

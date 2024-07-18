@@ -29,11 +29,10 @@ Route::post('/login', [UserController::class, 'login']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [UserController::class, 'logout']);
     Route::resource('profiles', ProfileController::class);
-    Route::get('profiles/{parent_id}/get_profiles', [ProfileController::class, 'getProfiles']);  //this must be get
+    Route::get('profiles/{parent_id}/get_profiles', [ProfileController::class, 'getProfiles']); 
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
 });
 
-//Route::group(['middleware'=>['auth:sanctum', 'role:member']], function(){
-    // Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
-//});
+Route::get('profiles/{profile_no}/get_ref_profile', [ProfileController::class, 'getProfileByProfileNo']);  //this must be get
+
 
