@@ -38,8 +38,9 @@ const Index = () => {
                 })
                 .then((response: any) => {
                     setPaymentDone(true);
-                    localStorage.setItem('user', JSON.stringify(response.data.data.user));
-                    localStorage.setItem('token', response.data.data.token);
+                    localStorage.setItem('user', JSON.stringify(response?.data?.data?.user));
+                    localStorage.setItem('token', response?.data?.data?.token);
+                    // localStorage.setItem('token', response.data.data.token);
                     toast.success('Payment done Successly.');
                 });
             console.log(response);
