@@ -176,6 +176,7 @@ const Index = () => {
                         )}
                     </div>
                 </div>
+
                 <div className="max-md:col-span-2">
                     <div
                         className="panel h-full overflow-hidden before:bg-[#1937cc] before:absolute before:-right-44 before:top-0 before:bottom-0 before:m-auto before:rounded-full before:w-96 before:h-96 grid grid-cols-1 content-between"
@@ -210,6 +211,26 @@ const Index = () => {
                         </div>
                     </div>
                 </div>
+                <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400">
+                    <div className="flex justify-between">
+                        <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Total Business</div>
+                    </div>
+                    <div className="flex items-center mt-5">
+                        <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">
+                            {Formatcurrency(
+                                (User.profile.level_1 +
+                                    User.profile.level_2 +
+                                    User.profile.level_3 +
+                                    User.profile.level_4 +
+                                    User.profile.level_5 +
+                                    User.profile.level_6 +
+                                    User.profile.level_7 +
+                                    User.profile.level_8) *
+                                    1000
+                            )}
+                        </div>
+                    </div>
+                </div>
                 <div className="panel col-span-2">
                     <div className="flex items-center justify-between mb-5">
                         <h5 className="font-semibold text-lg dark:text-white-light">Levels Table</h5>
@@ -219,8 +240,8 @@ const Index = () => {
                             <thead>
                                 <tr>
                                     <th>Levels</th>
-                                    <th>Count</th>
-                                    <th>Direct Business</th>
+                                    <th className="text-center">Count</th>
+                                    <th className="text-right">Direct Business</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -231,8 +252,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_1}>
                                                     <td>Level 1</td>
-                                                    <td>{data.level_1}</td>
-                                                    {data.level_1 && <td>{Formatcurrency(data.level_1 * 1000)}</td>}
+                                                    <td className="text-center">{data.level_1}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_1 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -240,8 +261,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_2}>
                                                     <td>Level 2</td>
-                                                    <td>{data.level_2}</td>
-                                                    <td>{Formatcurrency(data.level_2 * 1000)}</td>
+                                                    <td className="text-center">{data.level_2}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_2 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -249,8 +270,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_3}>
                                                     <td>Level 3</td>
-                                                    <td>{data.level_3}</td>
-                                                    <td>{Formatcurrency(data.level_3 * 1000)}</td>
+                                                    <td className="text-center">{data.level_3}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_3 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -258,8 +279,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_4}>
                                                     <td>Level 4</td>
-                                                    <td>{data.level_4}</td>
-                                                    <td>{Formatcurrency(data.level_4 * 1000)}</td>
+                                                    <td className="text-center">{data.level_4}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_4 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -267,8 +288,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_5}>
                                                     <td>Level 5</td>
-                                                    <td>{data.level_5}</td>
-                                                    <td>{Formatcurrency(data.level_5 * 1000)}</td>
+                                                    <td className="text-center">{data.level_5}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_5 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -276,8 +297,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_6}>
                                                     <td>Level 6</td>
-                                                    <td>{data.level_6}</td>
-                                                    <td>{Formatcurrency(data.level_6 * 1000)}</td>
+                                                    <td className="text-center">{data.level_6}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_6 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -285,8 +306,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_7}>
                                                     <td>Level 7</td>
-                                                    <td>{data.level_7}</td>
-                                                    <td>{Formatcurrency(data.level_7 * 1000)}</td>
+                                                    <td className="text-center">{data.level_7}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_7 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -294,8 +315,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.level_8}>
                                                     <td>Level 8</td>
-                                                    <td>{data.level_8}</td>
-                                                    <td>{Formatcurrency(data.level_8 * 1000)}</td>
+                                                    <td className="text-center">{data.level_8}</td>
+                                                    <td className="text-right">{Formatcurrency(data.level_8 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -303,8 +324,8 @@ const Index = () => {
                                             return (
                                                 <tr key={data.direct_count}>
                                                     <td className="font-bold">Direct Count</td>
-                                                    <td className="font-bold">{data.direct_count}</td>
-                                                    <td className="font-bold">{Formatcurrency(data.direct_count * 1000)}</td>
+                                                    <td className="font-bold text-center">{data.direct_count}</td>
+                                                    <td className="font-bold text-right">{Formatcurrency(data.direct_count * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -364,11 +385,11 @@ const Index = () => {
                     </div>
                 </div>
 
-                <div className="col-span-2">
-                    <div className="panel col-span-2 w-full">
-                        <h5 className="font-semibold text-lg dark:text-white-light">Shopping Center</h5>
-                        <div className="mb-5 flex items-center justify-evenly gap-5 mt-8">
-                            <div className="mb-5 flex items-center justify-center min-w-[300px]">
+                <div className="col-span-2 ">
+                    <div className="panel col-span-2 w-full flex flex-wrap">
+                        <h5 className="flex flex-wrap font-semibold text-lg dark:text-white-light">Shopping Center</h5>
+                        <div className="flex flex-wrap mb-5 flex items-center justify-evenly gap-5 mt-8">
+                            <div onClick={() => Navigate('/shoppingcart')} className="mb-5 flex items-center justify-center min-w-[300px] cursor-pointer">
                                 <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
                                     <div className="flex flex-col items-center justify-center py-7 px-6">
                                         <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
@@ -378,7 +399,7 @@ const Index = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mb-5 flex items-center justify-center min-w-[300px]">
+                            <div onClick={() => Navigate('/ShoppingComputer')} className="mb-5 flex items-center justify-center min-w-[300px] cursor-pointer">
                                 <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
                                     <div className="flex flex-col items-center justify-center  py-7 px-6">
                                         <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
@@ -388,7 +409,7 @@ const Index = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mb-5 flex items-center justify-center min-w-[300px]">
+                            <div onClick={() => Navigate('/ShoppingSoftware')} className="mb-5 flex items-center justify-center min-w-[300px] cursor-pointer">
                                 <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
                                     <div className="flex flex-col items-center justify-center  py-7 px-6">
                                         <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
