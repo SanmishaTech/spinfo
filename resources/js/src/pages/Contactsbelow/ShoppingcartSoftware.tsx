@@ -11,14 +11,6 @@ import QuickHeal from '../../components/Images/Electronics/SP Shopping Mall/Soft
 
 const Electronics = [
     {
-        name: 'Eset',
-        src: Eset,
-    },
-    {
-        name: 'Kasper',
-        src: Kasper,
-    },
-    {
         name: 'Quick Heal',
         src: QuickHeal,
     },
@@ -53,7 +45,7 @@ const Contacts = () => {
                     {Electronics.map((src) => {
                         return (
                             <div onClick={() => toast.success('Coming Soon')} className="mb-5 flex items-center justify-center cursor-pointer">
-                                <div className="w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
+                                <div className="min-w-[19rem] max-w-[19rem] bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
                                     <div className="py-7 px-6">
                                         <div className="-mt-7 mb-7 -mx-6 rounded-tl rounded-tr h-[215px] flex items-center justify-center overflow-hidden">
                                             <img src={src.src} alt="cover" className="w-full min-h-[115px] object-cover" />

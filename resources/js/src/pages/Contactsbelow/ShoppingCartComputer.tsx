@@ -19,14 +19,6 @@ const Electronics = [
         name: 'Dell',
         src: Dell,
     },
-    {
-        name: 'HP',
-        src: HP,
-    },
-    {
-        name: 'Lenovo',
-        src: Lenovo,
-    },
 ];
 
 const Contacts = () => {
