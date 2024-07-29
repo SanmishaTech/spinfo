@@ -6,6 +6,9 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { Formatcurrency } from '../components/CurrencyComponent';
+import Electronics from '../components/Images/OIP.jpeg';
+import ComputerSvg from '../components/Images/computer-svgrepo-com (1).svg';
+import SoftwareSvg from '../components/Images/Software.svg';
 
 const Index = () => {
     const themeConfig = useSelector((state: IRootState) => state.themeConfig);
@@ -217,6 +220,7 @@ const Index = () => {
                                 <tr>
                                     <th>Levels</th>
                                     <th>Count</th>
+                                    <th>Direct Business</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -228,6 +232,7 @@ const Index = () => {
                                                 <tr key={data.level_1}>
                                                     <td>Level 1</td>
                                                     <td>{data.level_1}</td>
+                                                    {data.level_1 && <td>{Formatcurrency(data.level_1 * 1000)}</td>}
                                                 </tr>
                                             );
                                         }
@@ -236,6 +241,7 @@ const Index = () => {
                                                 <tr key={data.level_2}>
                                                     <td>Level 2</td>
                                                     <td>{data.level_2}</td>
+                                                    <td>{Formatcurrency(data.level_2 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -244,6 +250,7 @@ const Index = () => {
                                                 <tr key={data.level_3}>
                                                     <td>Level 3</td>
                                                     <td>{data.level_3}</td>
+                                                    <td>{Formatcurrency(data.level_3 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -252,6 +259,7 @@ const Index = () => {
                                                 <tr key={data.level_4}>
                                                     <td>Level 4</td>
                                                     <td>{data.level_4}</td>
+                                                    <td>{Formatcurrency(data.level_4 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -260,6 +268,7 @@ const Index = () => {
                                                 <tr key={data.level_5}>
                                                     <td>Level 5</td>
                                                     <td>{data.level_5}</td>
+                                                    <td>{Formatcurrency(data.level_5 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -268,6 +277,7 @@ const Index = () => {
                                                 <tr key={data.level_6}>
                                                     <td>Level 6</td>
                                                     <td>{data.level_6}</td>
+                                                    <td>{Formatcurrency(data.level_6 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -276,6 +286,7 @@ const Index = () => {
                                                 <tr key={data.level_7}>
                                                     <td>Level 7</td>
                                                     <td>{data.level_7}</td>
+                                                    <td>{Formatcurrency(data.level_7 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -284,14 +295,16 @@ const Index = () => {
                                                 <tr key={data.level_8}>
                                                     <td>Level 8</td>
                                                     <td>{data.level_8}</td>
+                                                    <td>{Formatcurrency(data.level_8 * 1000)}</td>
                                                 </tr>
                                             );
                                         }
                                         if (index === 8) {
                                             return (
                                                 <tr key={data.direct_count}>
-                                                    <td>Direct Count</td>
-                                                    <td>{data.direct_count}</td>
+                                                    <td className="font-bold">Direct Count</td>
+                                                    <td className="font-bold">{data.direct_count}</td>
+                                                    <td className="font-bold">{Formatcurrency(data.direct_count * 1000)}</td>
                                                 </tr>
                                             );
                                         }
@@ -328,7 +341,7 @@ const Index = () => {
                                     User?.profile &&
                                     Profiles?.map((data, index) => {
                                         return (
-                                            <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`, '_blank')} key={data?.id}>
+                                            <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={data?.id}>
                                                 <td>{data?.profile_no}</td>
                                                 <td>{data?.name}</td>
                                                 <td>
@@ -348,6 +361,44 @@ const Index = () => {
                                     })}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <div className="col-span-2">
+                    <div className="panel col-span-2 w-full">
+                        <h5 className="font-semibold text-lg dark:text-white-light">Shopping Center</h5>
+                        <div className="mb-5 flex items-center justify-evenly gap-5 mt-8">
+                            <div className="mb-5 flex items-center justify-center min-w-[300px]">
+                                <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
+                                    <div className="flex flex-col items-center justify-center py-7 px-6">
+                                        <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
+                                            <img src={Electronics} alt="electronics" className="w-6 h-6" />
+                                        </div>
+                                        <h5 className="text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light">Electronics</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-5 flex items-center justify-center min-w-[300px]">
+                                <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
+                                    <div className="flex flex-col items-center justify-center  py-7 px-6">
+                                        <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
+                                            <img src={ComputerSvg} alt="electronics" className="w-6 h-6" />
+                                        </div>
+                                        <h5 className="text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light">Computer</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-5 flex items-center justify-center min-w-[300px]">
+                                <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
+                                    <div className="flex flex-col items-center justify-center  py-7 px-6">
+                                        <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
+                                            <img src={SoftwareSvg} alt="electronics" className="w-6 h-6" />
+                                        </div>
+                                        <h5 className="text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light">Software</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

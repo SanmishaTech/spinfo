@@ -143,7 +143,7 @@ const Header = () => {
     };
     const logout = async () => {
         try {
-            const response = await axios.post(
+            const response = await axios.get(
                 '/api/logout',
                 {},
                 {

@@ -8,6 +8,9 @@ const AdminProfiles = lazy(() => import('../pages/AdminProfiles/Profiles'));
 const UpdateProfile = lazy(() => import('../pages/Profile/UpdateProfile'));
 const AdminEditProfile = lazy(() => import('../pages/AdminProfiles/UpdateProfile'));
 const Contact = lazy(() => import('../pages/Contactsbelow/Contacts'));
+const ShoppingCart = lazy(() => import('../pages/Contactsbelow/ShoppingCart'));
+const ShoppingCartComputer = lazy(() => import('../pages/Contactsbelow/ShoppingCartComputer'));
+const ShoppingSoftware = lazy(() => import('../pages/Contactsbelow/ShoppingcartSoftware'));
 const routes = [
     // dashboard
     {
@@ -53,6 +56,21 @@ const routes = [
     {
         path: '/contactedit/:id',
         element: <Contact />,
+        layout: 'default',
+    },
+    {
+        path: '/shoppingcart',
+        element: <ShoppingCart />,
+        layout: 'default',
+    },
+    {
+        path: '/ShoppingComputer',
+        element: <ShoppingCartComputer />,
+        layout: 'default',
+    },
+    {
+        path: '/ShoppingSoftware',
+        element: <ShoppingSoftware />,
         layout: 'default',
     },
 ];
