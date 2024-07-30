@@ -25,12 +25,6 @@ function App({ children }: PropsWithChildren) {
         dispatch(toggleSemidark(localStorage.getItem('semidark') || themeConfig.semidark));
     }, [dispatch, themeConfig.theme, themeConfig.menu, themeConfig.layout, themeConfig.rtlClass, themeConfig.animation, themeConfig.navbar, themeConfig.locale, themeConfig.semidark]);
 
-    useEffect(() => {
-        if (!JSON.parse(localStorage.getItem('user'))) {
-            navigate('/');
-        }
-    }, [User]);
-
     return (
         <>
             <Toaster position="top-center" richColors />

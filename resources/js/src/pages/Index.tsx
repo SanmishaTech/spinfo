@@ -74,6 +74,11 @@ const Index = () => {
         }
     };
     useEffect(() => {
+        if (!JSON.parse(localStorage.getItem('user'))) {
+            Navigate('/');
+        }
+    }, [User]);
+    useEffect(() => {
         const response = async () => {
             const response = await axios
                 .get(`/api/profiles/${User?.profile?.id}/get_profiles`, {
@@ -238,7 +243,7 @@ const Index = () => {
                             <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Current Month Count</div>
                         </div>
                         <div className="flex items-center mt-5">
-                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">{CurrentMonthCount}</div>
+                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">{CurrentMonthCount || 0}</div>
                         </div>
                     </div>
                     <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400 w-full">
@@ -246,7 +251,7 @@ const Index = () => {
                             <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Current Month Business</div>
                         </div>
                         <div className="flex items-center mt-5">
-                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">{Formatcurrency(CurrentMonthCount * 1000)}</div>
+                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">{Formatcurrency(CurrentMonthCount * 1000) || 0}</div>
                         </div>
                     </div>
                 </div>
