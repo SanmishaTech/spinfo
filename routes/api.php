@@ -31,6 +31,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::resource('profiles', ProfileController::class);
     Route::get('profiles/{parent_id}/get_profiles', [ProfileController::class, 'getProfiles']); 
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
+    Route::get('currnet_month_count', [ProfileController::class, 'getCurrentMonthCount']); 
+
 });
 
 Route::get('profiles/{profile_no}/get_ref_profile', [ProfileController::class, 'getProfileByProfileNo'])->where('profile_no', '[A-Za-z0-9]+');  //this must be get

@@ -44,7 +44,7 @@ class ProfileController extends BaseController
       }
 
        /*
-       * Get Ref Profile
+       * Get Profile By Profile No
        */
       public function getProfileByProfileNo(string $profile_no): JsonResponse
       {
@@ -130,6 +130,20 @@ class ProfileController extends BaseController
       //  }
 
 
+    }
+
+    /**
+     *  Get Current Month Count
+     */
+    public function getCurrentMonthCount(){
+          $profile_id = auth()->user()->profile->id;
+
+          $startOfMonth = now()->startOfMonth()->toDateString();
+          $endOfMonth = now()->endOfMonth()->toDateString();
+           
+          $count = Profile::where('id', '>', $profile_id)->whereBetween('registration_date',[$startOfMonth, $endOfMonth])->whereNotNull('profile_no')->count();
+          
+          return $this->sendResponse(['Count'=>$count], 'Count Retrived successfully');
     }
        
 

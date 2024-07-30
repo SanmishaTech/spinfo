@@ -5,20 +5,186 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "https:\/\/app.spinfocom.net.in"
+            "value": "http:\/\/localhost:8000"
         }
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "5558d1ff-9d6b-4dec-aedc-7ff3fa4ff4d9",
+        "_postman_id": "139c2e85-2d1a-48d3-87b1-617ef50e9934",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
+            "name": "Payment Management",
+            "description": " `",
+            "item": [
+                {
+                    "name": "Show Payment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/payment\/:profile_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/payment\/:profile_id",
+                            "variable": [
+                                {
+                                    "id": "profile_id",
+                                    "key": "profile_id",
+                                    "value": "placeat",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Profile Management",
             "description": "\nAPI for Managing Profile data",
             "item": [
+                {
+                    "name": "GET api\/profiles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "laboriosam",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
                 {
                     "name": "Update Profile",
                     "request": {
@@ -31,7 +197,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "eos",
+                                    "value": "quidem",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -49,7 +215,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"nulla\",\"mobile\":\"est\",\"pan\":\"blanditiis\",\"address_1\":\"est\",\"address_2\":\"quidem\",\"city\":\"itaque\",\"state\":\"odio\",\"pincode\":\"quis\",\"bank_name\":\"alias\",\"account_name\":\"impedit\",\"account_no\":\"eos\",\"ifsc\":\"atque\",\"business_name\":\"soluta\",\"gstin\":\"qui\"}"
+                            "raw": "{\"name\":\"quia\",\"mobile\":\"rerum\",\"pan\":\"mollitia\",\"address_1\":\"hic\",\"address_2\":\"libero\",\"city\":\"tenetur\",\"state\":\"blanditiis\",\"pincode\":\"quam\",\"bank_name\":\"eos\",\"account_name\":\"autem\",\"account_no\":\"veniam\",\"ifsc\":\"odit\",\"business_name\":\"accusamus\",\"gstin\":\"temporibus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -57,6 +223,174 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "GET api\/profiles\/{parent_id}\/get_profiles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/:parent_id\/get_profiles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/:parent_id\/get_profiles",
+                            "variable": [
+                                {
+                                    "id": "parent_id",
+                                    "key": "parent_id",
+                                    "value": "tempora",
+                                    "description": "The ID of the parent."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Current Month Count",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/currnet_month_count",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/currnet_month_count"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/profiles\/{profile_no}\/get_ref_profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/:profile_no\/get_ref_profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/:profile_no\/get_ref_profile",
+                            "variable": [
+                                {
+                                    "id": "profile_no",
+                                    "key": "profile_no",
+                                    "value": "PeC",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\" Profiles Retrived successfully\",\"data\":{\"Profiles\":[]}}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -86,7 +420,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"yttarhvifrg\",\"email\":\"karolann46@example.org\",\"mobile\":\"+(:4\",\"pan\":\"bKEbO8507a\",\"password\":\"VO[{`R0\",\"password_confirmation\":\"et\",\"parent_id\":\"quod\",\"ref_id\":\"iure\"}"
+                            "raw": "{\"name\":\"btjlhmrztzeqfswbbg\",\"email\":\"hmarquardt@example.com\",\"mobile\":\"+:8\",\"pan\":\"ImbzP2646t\",\"password\":\";ZnT^70tY5&{Xz(p\",\"password_confirmation\":\"nam\",\"parent_id\":\"non\",\"ref_id\":\"et\"}"
                         },
                         "description": "",
                         "auth": {
@@ -117,7 +451,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"jmedhurst@example.org\",\"password\":\"sA,N?'\\\"\"}"
+                            "raw": "{\"email\":\"zbernhard@example.org\",\"password\":\"XyO..\\\"n(pV-!@\"}"
                         },
                         "description": "",
                         "auth": {
