@@ -72,6 +72,10 @@ const Contacts = () => {
     return (
         <div>
             <div className="panel flex flex-col gap-5 col-span-2">
+                <div>
+                    <button></button>
+                    <h1 className="font-bold text-lg dark:text-white-light text-[2rem]">Electronics</h1>
+                </div>
                 <h1 className="font-bold text-lg dark:text-white-light text-[2rem]">Electronics</h1>
                 <div className="flex flex-wrap items-center justify-center mb-5 gap-5">
                     {Electronics.map((src) => {
