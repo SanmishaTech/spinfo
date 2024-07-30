@@ -134,9 +134,9 @@ const Profiles = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {profileList.map((data) => {
+                            {profileList.map((data, index) => {
                                 return (
-                                    <tr key={data?.id}>
+                                    <tr key={index}>
                                         <td>{data.profile_no}</td>
                                         <td>
                                             <div className="whitespace-nowrap">{data?.name}</div>

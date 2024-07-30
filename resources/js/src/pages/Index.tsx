@@ -4,7 +4,7 @@ import { IRootState } from '../store';
 import { toggleRTL, toggleTheme, toggleMenu, toggleLayout, toggleAnimation, toggleNavbar, toggleLocale, toggleSemidark } from '../store/themeConfigSlice';
 import axios from 'axios';
 import { toast } from 'sonner';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Formatcurrency } from '../components/CurrencyComponent';
 import Electronics from '../components/Images/OIP.jpeg';
 import ComputerSvg from '../components/Images/computer-svgrepo-com (1).svg';
@@ -17,6 +17,9 @@ const Index = () => {
     const [PaymentDone, setPaymentDone] = useState(false);
     const [showProfileWarning, setShowProfileWarning] = useState(true);
     const [Profiles, setProfiles] = useState([]);
+    const [CurrentMonthCount, setCurrentMonthCount] = useState(0);
+
+    const location = useLocation();
     useEffect(() => {
         dispatch(toggleTheme(localStorage.getItem('theme') || themeConfig.theme));
         dispatch(toggleMenu(localStorage.getItem('menu') || themeConfig.menu));
@@ -28,12 +31,31 @@ const Index = () => {
         dispatch(toggleMenu('vertical'));
         dispatch(toggleSemidark(localStorage.getItem('semidark') || themeConfig.semidark));
     }, [dispatch, themeConfig.theme, themeConfig.menu, themeConfig.layout, themeConfig.rtlClass, themeConfig.animation, themeConfig.navbar, themeConfig.locale, themeConfig.semidark]);
-    const User = JSON.parse(localStorage.getItem('user') as string);
+    const User = JSON.parse(localStorage.getItem('user'));
+
     const Navigate = useNavigate();
+
+    useEffect(() => {
+        const getCount = async () => {
+            const response = await axios
+                .get(`/api/current_month_count`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
+                    },
+                })
+                .then((response: any) => {
+                    setCurrentMonthCount(response?.data?.data?.Count);
+                });
+            console.log(response);
+        };
+        getCount();
+    }, []);
+
     const callapi = async () => {
         try {
             const response = await axios
-                .get(`/api/payment/${User.profile.id}`, {
+                .get(`/api/payment/${User?.profile?.id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -71,31 +93,31 @@ const Index = () => {
 
     const tableData = [
         {
-            level_1: User.profile.level_1,
+            level_1: User?.profile?.level_1,
         },
         {
-            level_2: User.profile.level_2,
+            level_2: User?.profile?.level_2,
         },
         {
-            level_3: User.profile.level_3,
+            level_3: User?.profile?.level_3,
         },
         {
-            level_4: User.profile.level_4,
+            level_4: User?.profile?.level_4,
         },
         {
-            level_5: User.profile.level_5,
+            level_5: User?.profile?.level_5,
         },
         {
-            level_6: User.profile.level_6,
+            level_6: User?.profile?.level_6,
         },
         {
-            level_7: User.profile.level_7,
+            level_7: User?.profile?.level_7,
         },
         {
-            level_8: User.profile.level_8,
+            level_8: User?.profile?.level_8,
         },
         {
-            direct_count: User.profile.direct_count,
+            direct_count: User?.profile?.direct_count,
         },
     ];
 
@@ -158,8 +180,8 @@ const Index = () => {
                             </svg>
                         </div>
                         <h5 className="text-lg font-semibold mb-3.5 dark:text-white-light">Make Payment</h5>
-                        <p className="text-white-dark text-[15px]  mb-3.5">{User.profile.profile_no ? 'You have Already Made your payment' : 'You have not made any payments yet.'}</p>
-                        {!User.profile.profile_no && (
+                        <p className="text-white-dark text-[15px]  mb-3.5">{User?.profile?.profile_no ? 'You have Already Made your payment' : 'You have not made any payments yet.'}</p>
+                        {!User?.profile?.profile_no && (
                             <button onClick={callapi} type="button" className="text-primary font-semibold hover:underline group">
                                 Make Payment{' '}
                                 <svg
@@ -185,49 +207,46 @@ const Index = () => {
                         <div className="flex items-start justify-between text-white-light mb-16 z-[7]">
                             <h5 className="font-semibold text-lg">Total Balance</h5>
 
-                            <div className="relative text-xl whitespace-nowrap"> {Formatcurrency(User.profile.wallet_balance)} </div>
+                            <div className="relative text-xl whitespace-nowrap"> {Formatcurrency(User?.profile?.wallet_balance)} </div>
                         </div>
-                        <div className="flex items-center justify-between z-10">
-                            {/* <div className="flex items-center justify-between">
-                                <button type="button" className="shadow-[0_0_2px_0_#bfc9d4] rounded p-1 text-white-light hover:bg-[#1937cc] place-content-center ltr:mr-2 rtl:ml-2">
-                                    <svg className="w-5 h-5" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </button>
-                                <button type="button" className="shadow-[0_0_2px_0_#bfc9d4] rounded p-1 text-white-light hover:bg-[#1937cc] grid place-content-center">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"
-                                            stroke="currentColor"
-                                            strokeWidth="1.5"
-                                        />
-                                        <path opacity="0.5" d="M10 16H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                        <path opacity="0.5" d="M14 16H12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                        <path opacity="0.5" d="M2 10L22 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                    </svg>
-                                </button>
-                            </div> */}
-                        </div>
+                        <div className="flex items-center justify-between z-10"></div>
                     </div>
                 </div>
-                <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400">
-                    <div className="flex justify-between">
-                        <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Total Business</div>
+                <div className="flex justify-evenly col-span-2 gap-5">
+                    <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400 w-full">
+                        <div className="flex justify-between">
+                            <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Total Business</div>
+                        </div>
+                        <div className="flex items-center mt-5">
+                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">
+                                {Formatcurrency(
+                                    (User?.profile?.level_1 +
+                                        User?.profile?.level_2 +
+                                        User?.profile?.level_3 +
+                                        User?.profile?.level_4 +
+                                        User?.profile?.level_5 +
+                                        User?.profile?.level_6 +
+                                        User?.profile?.level_7 +
+                                        User?.profile?.level_8) *
+                                        1000
+                                )}
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex items-center mt-5">
-                        <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">
-                            {Formatcurrency(
-                                (User.profile.level_1 +
-                                    User.profile.level_2 +
-                                    User.profile.level_3 +
-                                    User.profile.level_4 +
-                                    User.profile.level_5 +
-                                    User.profile.level_6 +
-                                    User.profile.level_7 +
-                                    User.profile.level_8) *
-                                    1000
-                            )}
+                    <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400 w-full">
+                        <div className="flex justify-between">
+                            <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Current Month Count</div>
+                        </div>
+                        <div className="flex items-center mt-5">
+                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">{CurrentMonthCount}</div>
+                        </div>
+                    </div>
+                    <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400 w-full">
+                        <div className="flex justify-between">
+                            <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Current Month Business</div>
+                        </div>
+                        <div className="flex items-center mt-5">
+                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">{Formatcurrency(CurrentMonthCount * 1000)}</div>
                         </div>
                     </div>
                 </div>
@@ -250,7 +269,7 @@ const Index = () => {
                                     tableData.map((data, index) => {
                                         if (index === 0) {
                                             return (
-                                                <tr key={data.level_1}>
+                                                <tr key={index}>
                                                     <td>Level 1</td>
                                                     <td className="text-center">{data.level_1}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_1 * 1000)}</td>
@@ -259,7 +278,7 @@ const Index = () => {
                                         }
                                         if (index === 1) {
                                             return (
-                                                <tr key={data.level_2}>
+                                                <tr key={index}>
                                                     <td>Level 2</td>
                                                     <td className="text-center">{data.level_2}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_2 * 1000)}</td>
@@ -268,7 +287,7 @@ const Index = () => {
                                         }
                                         if (index === 2) {
                                             return (
-                                                <tr key={data.level_3}>
+                                                <tr key={index}>
                                                     <td>Level 3</td>
                                                     <td className="text-center">{data.level_3}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_3 * 1000)}</td>
@@ -277,7 +296,7 @@ const Index = () => {
                                         }
                                         if (index === 3) {
                                             return (
-                                                <tr key={data.level_4}>
+                                                <tr key={index}>
                                                     <td>Level 4</td>
                                                     <td className="text-center">{data.level_4}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_4 * 1000)}</td>
@@ -286,7 +305,7 @@ const Index = () => {
                                         }
                                         if (index === 4) {
                                             return (
-                                                <tr key={data.level_5}>
+                                                <tr key={index}>
                                                     <td>Level 5</td>
                                                     <td className="text-center">{data.level_5}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_5 * 1000)}</td>
@@ -295,7 +314,7 @@ const Index = () => {
                                         }
                                         if (index === 5) {
                                             return (
-                                                <tr key={data.level_6}>
+                                                <tr key={index}>
                                                     <td>Level 6</td>
                                                     <td className="text-center">{data.level_6}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_6 * 1000)}</td>
@@ -304,7 +323,7 @@ const Index = () => {
                                         }
                                         if (index === 6) {
                                             return (
-                                                <tr key={data.level_7}>
+                                                <tr key={index}>
                                                     <td>Level 7</td>
                                                     <td className="text-center">{data.level_7}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_7 * 1000)}</td>
@@ -313,7 +332,7 @@ const Index = () => {
                                         }
                                         if (index === 7) {
                                             return (
-                                                <tr key={data.level_8}>
+                                                <tr key={index}>
                                                     <td>Level 8</td>
                                                     <td className="text-center">{data.level_8}</td>
                                                     <td className="text-right">{Formatcurrency(data.level_8 * 1000)}</td>
@@ -322,7 +341,7 @@ const Index = () => {
                                         }
                                         if (index === 8) {
                                             return (
-                                                <tr key={data.direct_count}>
+                                                <tr key={index}>
                                                     <td className="font-bold">Direct Count</td>
                                                     <td className="font-bold text-center">{data.direct_count}</td>
                                                     <td className="font-bold text-right">{Formatcurrency(data.direct_count * 1000)}</td>
@@ -362,7 +381,7 @@ const Index = () => {
                                     User?.profile &&
                                     Profiles?.map((data, index) => {
                                         return (
-                                            <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={data?.id}>
+                                            <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={index}>
                                                 <td>{data?.profile_no}</td>
                                                 <td>{data?.name}</td>
                                                 <td>
@@ -385,43 +404,7 @@ const Index = () => {
                     </div>
                 </div>
 
-                <div className="col-span-2 ">
-                    <div className="panel col-span-2 w-full flex flex-wrap">
-                        <h5 className="flex flex-wrap font-semibold text-lg dark:text-white-light">Shopping Center</h5>
-                        <div className="flex flex-wrap mb-5 flex items-center justify-evenly gap-5 mt-8">
-                            <div onClick={() => Navigate('/shoppingcart')} className="mb-5 flex items-center justify-center min-w-[300px] cursor-pointer">
-                                <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
-                                    <div className="flex flex-col items-center justify-center py-7 px-6">
-                                        <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
-                                            <img src={Electronics} alt="electronics" className="w-6 h-6" />
-                                        </div>
-                                        <h5 className="text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light">Electronics</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div onClick={() => Navigate('/ShoppingComputer')} className="mb-5 flex items-center justify-center min-w-[300px] cursor-pointer">
-                                <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
-                                    <div className="flex flex-col items-center justify-center  py-7 px-6">
-                                        <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
-                                            <img src={ComputerSvg} alt="electronics" className="w-6 h-6" />
-                                        </div>
-                                        <h5 className="text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light">Computer</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div onClick={() => Navigate('/ShoppingSoftware')} className="mb-5 flex items-center justify-center min-w-[300px] cursor-pointer">
-                                <div className="max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
-                                    <div className="flex flex-col items-center justify-center  py-7 px-6">
-                                        <div className="bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full">
-                                            <img src={SoftwareSvg} alt="electronics" className="w-6 h-6" />
-                                        </div>
-                                        <h5 className="text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light">Software</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div className="col-span-2 "></div>
             </div>
         </div>
     );

@@ -53,7 +53,7 @@ const UpdateProfile = () => {
         bank_verified: boolean;
         gstin_verified: boolean;
     }
-    const User = JSON.parse(localStorage.getItem('user') as string);
+    const User = JSON.parse(localStorage.getItem('user'));
     console.log(User);
     const [uniqueData, setUniqueData] = useState<any>({});
     const [phone, setPhone] = useState<string | null>(null);

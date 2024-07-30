@@ -14,7 +14,7 @@ const Sidebar = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { t } = useTranslation();
-
+    const Navigate = useNavigate();
     const toggleMenu = (value: string) => {
         setCurrentMenu((oldValue) => (oldValue === value ? '' : value));
     };
@@ -65,7 +65,7 @@ const Sidebar = () => {
                     </div>
                     <PerfectScrollbar className="h-[calc(100vh-80px)] relative">
                         <ul className="relative font-semibold space-y-0.5 p-4 py-0">
-                            <li className="menu nav-item">
+                            <li onClick={() => Navigate('/dashboard')} className="menu nav-item">
                                 <button type="button" className={`nav-link group w-full ${currentMenu === 'dashboard' ? 'active' : ''}`} onClick={() => toggleMenu('dashboard')}>
                                     <div className="flex items-center">
                                         <svg className="group-hover:!text-primary shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,19 +81,16 @@ const Sidebar = () => {
                                         </svg>
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('dashboard')}</span>
                                     </div>
-                                    <div className={currentMenu === 'dashboard' ? 'rotate-90' : 'rtl:rotate-180'}>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L15 12L9 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
+                                    <div className={currentMenu === 'dashboard' ? 'rotate-90' : 'rtl:rotate-180'}></div>
                                 </button>
-                                <AnimateHeight duration={300} height={currentMenu === 'dashboard' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
-                                        <li>
-                                            <NavLink to="/">{t('sales')}</NavLink>
-                                        </li>
-                                    </ul>
-                                </AnimateHeight>
+                            </li>
+                            <li onClick={() => Navigate('/shoppingmal')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'shoppingmal' ? 'active' : ''}`} onClick={() => toggleMenu('shoppingmal')}>
+                                    <div className="flex items-center">
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Shopping Mall')}</span>
+                                    </div>
+                                    <div className={currentMenu === 'shoppingmal' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                </button>
                             </li>
                         </ul>
                     </PerfectScrollbar>

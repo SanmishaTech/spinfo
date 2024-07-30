@@ -5,11 +5,14 @@ import { IRootState } from './store';
 import { toggleRTL, toggleTheme, toggleLocale, toggleMenu, toggleLayout, toggleAnimation, toggleNavbar, toggleSemidark } from './store/themeConfigSlice';
 import store from './store';
 import { Toaster, toast } from 'sonner';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function App({ children }: PropsWithChildren) {
     const themeConfig = useSelector((state: IRootState) => state.themeConfig);
     const dispatch = useDispatch();
-
+    const User = JSON.parse(localStorage.getItem('user')!);
+    const navigate = useNavigate();
+    const location = useLocation();
     useEffect(() => {
         dispatch(toggleTheme(localStorage.getItem('theme') || themeConfig.theme));
         dispatch(toggleMenu(localStorage.getItem('menu') || themeConfig.menu));
@@ -21,6 +24,12 @@ function App({ children }: PropsWithChildren) {
         dispatch(toggleMenu('vertical'));
         dispatch(toggleSemidark(localStorage.getItem('semidark') || themeConfig.semidark));
     }, [dispatch, themeConfig.theme, themeConfig.menu, themeConfig.layout, themeConfig.rtlClass, themeConfig.animation, themeConfig.navbar, themeConfig.locale, themeConfig.semidark]);
+
+    useEffect(() => {
+        if (!JSON.parse(localStorage.getItem('user'))) {
+            navigate('/');
+        }
+    }, [User]);
 
     return (
         <>

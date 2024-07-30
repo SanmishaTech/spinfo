@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 const Contacts = () => {
     const { id, refid } = useParams();
     const [Profiles, setProfiles] = useState([]);
-    const User = JSON.parse(localStorage.getItem('user') as string);
+    const User = JSON.parse(localStorage.getItem('user'));
     useEffect(() => {
         const response = async () => {
             const response = await axios
@@ -46,7 +46,7 @@ const Contacts = () => {
                                 User?.profile &&
                                 Profiles?.map((data, index) => {
                                     return (
-                                        <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={data?.id}>
+                                        <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={index}>
                                             <td>{data?.profile_no}</td>
                                             <td>{data?.name}</td>
                                             <td>

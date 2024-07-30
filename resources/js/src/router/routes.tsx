@@ -11,6 +11,7 @@ const Contact = lazy(() => import('../pages/Contactsbelow/Contacts'));
 const ShoppingCart = lazy(() => import('../pages/Contactsbelow/ShoppingCart'));
 const ShoppingCartComputer = lazy(() => import('../pages/Contactsbelow/ShoppingCartComputer'));
 const ShoppingSoftware = lazy(() => import('../pages/Contactsbelow/ShoppingcartSoftware'));
+const ShoppingMall = lazy(() => import('../pages/ShoppingMal/ShoppingCart'));
 const routes = [
     // dashboard
     {
@@ -71,6 +72,11 @@ const routes = [
     {
         path: '/ShoppingSoftware',
         element: <ShoppingSoftware />,
+        layout: 'default',
+    },
+    {
+        path: '/shoppingmal',
+        element: <ShoppingMall />,
         layout: 'default',
     },
 ];

@@ -126,7 +126,7 @@ const Header = () => {
     const [flag, setFlag] = useState(themeConfig.locale);
 
     const { t } = useTranslation();
-    const User = JSON.parse(localStorage.getItem('user') as string);
+    const User = JSON.parse(localStorage.getItem('user'));
     console.log('USer', User);
     const callapi = async () => {
         try {
