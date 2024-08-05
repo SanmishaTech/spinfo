@@ -133,6 +133,7 @@ const themeConfigSlice = createSlice({
         },
         toggleSidebar(state) {
             state.sidebar = !state.sidebar;
+            console.log(state.sidebar);
         },
 
         setPageTitle(state, { payload }) {

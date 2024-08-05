@@ -35,12 +35,6 @@ const Sidebar = () => {
         }
     }, []);
 
-    useEffect(() => {
-        if (window.innerWidth < 1024 && themeConfig.sidebar) {
-            dispatch(toggleSidebar());
-        }
-    }, [location, themeConfig.sidebar, dispatch]);
-
     return (
         <div className={semidark ? 'dark' : ''}>
             <nav
@@ -90,6 +84,22 @@ const Sidebar = () => {
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Shopping Mall')}</span>
                                     </div>
                                     <div className={currentMenu === 'shoppingmal' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                </button>
+                            </li>
+                            <li onClick={() => Navigate('/clubmember')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'clubmember' ? 'active' : ''}`} onClick={() => toggleMenu('clubmember')}>
+                                    <div className="flex items-center">
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Club Member')}</span>
+                                    </div>
+                                    <div className={currentMenu === 'clubmember' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                </button>
+                            </li>
+                            <li onClick={() => Navigate('/empire')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'empire' ? 'active' : ''}`} onClick={() => toggleMenu('empire')}>
+                                    <div className="flex items-center">
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Empire')}</span>
+                                    </div>
+                                    <div className={currentMenu === 'empire' ? 'rotate-90' : 'rtl:rotate-180'}></div>
                                 </button>
                             </li>
                         </ul>

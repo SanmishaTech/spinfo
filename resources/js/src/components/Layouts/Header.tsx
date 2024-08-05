@@ -145,7 +145,7 @@ const Header = () => {
         try {
             const response = await axios.get(
                 '/api/logout',
-                {},
+
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -173,7 +173,8 @@ const Header = () => {
                         <button
                             type="button"
                             className="collapse-icon flex-none dark:text-[#d0d2d6] hover:text-primary dark:hover:text-primary flex lg:hidden ltr:ml-2 rtl:mr-2 p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.stopPropagation();
                                 dispatch(toggleSidebar());
                             }}
                         >

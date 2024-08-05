@@ -18,6 +18,14 @@ const Index = () => {
     const [showProfileWarning, setShowProfileWarning] = useState(true);
     const [Profiles, setProfiles] = useState([]);
     const [CurrentMonthCount, setCurrentMonthCount] = useState(0);
+    const [level1, setLevel1] = useState(0);
+    const [level2, setLevel2] = useState(0);
+    const [level3, setLevel3] = useState(0);
+    const [level4, setLevel4] = useState(0);
+    const [level5, setLevel5] = useState(0);
+    const [level6, setLevel6] = useState(0);
+    const [level7, setLevel7] = useState(0);
+    const [level8, setLevel8] = useState(0);
 
     const location = useLocation();
     useEffect(() => {
@@ -78,6 +86,7 @@ const Index = () => {
             Navigate('/');
         }
     }, [User]);
+
     useEffect(() => {
         const response = async () => {
             const response = await axios
@@ -125,6 +134,27 @@ const Index = () => {
             direct_count: User?.profile?.direct_count,
         },
     ];
+
+    const Variable = {
+        total:
+            level1 * 1 +
+            level2 * level1 * 1 +
+            level3 * level2 * level1 * 1 +
+            level4 * level3 * (level2 * level1 * 1) +
+            level5 * level4 * (level3 * (level2 * level1 * 1)) +
+            level6 * level5 * (level4 * (level3 * (level2 * level1 * 1))) +
+            level7 * level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))) +
+            level8 * level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))),
+        income:
+            level1 * 1 * 100 +
+            level2 * level1 * 1 * 50 +
+            level3 * level2 * level1 * 1 * 50 +
+            level4 * level3 * (level2 * level1 * 1) * 50 +
+            level5 * level4 * (level3 * (level2 * level1 * 1)) * 50 +
+            level6 * level5 * (level4 * (level3 * (level2 * level1 * 1))) * 50 +
+            level7 * level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))) * 50 +
+            level8 * level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))) * 50,
+    };
 
     return (
         <div>
@@ -217,7 +247,7 @@ const Index = () => {
                         <div className="flex items-center justify-between z-10"></div>
                     </div>
                 </div>
-                <div className="flex justify-evenly col-span-2 gap-5">
+                <div className="flex justify-evenly col-span-2 gap-5 max-md:flex-col">
                     <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400 w-full">
                         <div className="flex justify-between">
                             <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Total Business</div>
@@ -235,6 +265,23 @@ const Index = () => {
                                         User?.profile?.level_8) *
                                         1000
                                 )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="panel bg-gradient-to-r from-cyan-500 to-cyan-400 w-full">
+                        <div className="flex justify-between">
+                            <div className="ltr:mr-1 rtl:ml-1 text-md font-semibold">Total Count</div>
+                        </div>
+                        <div className="flex items-center mt-5">
+                            <div className="text-3xl font-bold ltr:mr-3 rtl:ml-3">
+                                {User?.profile?.level_1 +
+                                    User?.profile?.level_2 +
+                                    User?.profile?.level_3 +
+                                    User?.profile?.level_4 +
+                                    User?.profile?.level_5 +
+                                    User?.profile?.level_6 +
+                                    User?.profile?.level_7 +
+                                    User?.profile?.level_8}
                             </div>
                         </div>
                     </div>
@@ -404,6 +451,95 @@ const Index = () => {
                                             </tr>
                                         );
                                     })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div className="panel col-span-2">
+                    <div className="flex items-center justify-between mb-5">
+                        <h5 className="font-semibold text-lg dark:text-white-light">Calculator</h5>
+                    </div>
+                    <div className="table-responsive mb-5">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Levels</th>
+                                    <th>Total Ref</th>
+                                    <th>GrandTotal</th>
+                                    <th>Income</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Level 1</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 1" onChange={(e) => setLevel1(e.target.value)} />
+                                    </td>
+                                    <td>{level1 * 1}</td>
+                                    <td>{level1 * 1 * 100}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 2</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 2" onChange={(e) => setLevel2(e.target.value)} value={level2} />
+                                    </td>
+                                    <td>{level2 && level2 * level1 * 1}</td>
+                                    <td>{level2 && level2 * level1 * 1 * 50}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 3</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 3" onChange={(e) => setLevel3(e.target.value)} value={level3} />
+                                    </td>
+                                    <td>{level3 && level3 * (level2 * level1 * 1)}</td>
+                                    <td>{level3 && level3 * (level2 * level1 * 1 * 50)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 4</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 4" onChange={(e) => setLevel4(e.target.value)} value={level4} />
+                                    </td>
+                                    <td>{level4 && level4 * (level3 * (level2 * level1 * 1))}</td>
+                                    <td>{level5 && level4 * (level3 * (level2 * level1 * 1)) * 50}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 5</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 5" onChange={(e) => setLevel5(e.target.value)} value={level5} />
+                                    </td>
+                                    <td>{level5 && level5 * (level4 * (level3 * (level2 * level1 * 1)))}</td>
+                                    <td>{level5 && level5 * (level4 * (level3 * (level2 * level1 * 1))) * 50}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 6</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 6" onChange={(e) => setLevel6(e.target.value)} value={level6} />
+                                    </td>
+                                    <td>{level6 && level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))}</td>
+                                    <td>{level6 && level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))) * 50}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 7</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 7" onChange={(e) => setLevel7(e.target.value)} value={level7} />
+                                    </td>
+                                    <td>{level7 && level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))))}</td>
+                                    <td>{level7 && level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))) * 50}</td>
+                                </tr>
+                                <tr>
+                                    <td>Level 8</td>
+                                    <td>
+                                        <input type="number" className="form-input" placeholder="Enter Level 8" onChange={(e) => setLevel8(e.target.value)} value={level8} />
+                                    </td>
+                                    <td>{level8 && level8 * (level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))))}</td>
+                                    <td>{level8 && level8 * (level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))))) * 50}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td></td>
+                                    <td>{Variable.total}</td>
+                                    <td>{Variable.income}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
