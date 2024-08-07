@@ -102,6 +102,14 @@ const Sidebar = () => {
                                     <div className={currentMenu === 'empire' ? 'rotate-90' : 'rtl:rotate-180'}></div>
                                 </button>
                             </li>
+                            <li onClick={() => Navigate('/calculator')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'Calculator' ? 'active' : ''}`} onClick={() => toggleMenu('empire')}>
+                                    <div className="flex items-center">
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Calculator')}</span>
+                                    </div>
+                                    <div className={currentMenu === 'empire' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                </button>
+                            </li>
                         </ul>
                     </PerfectScrollbar>
                 </div>
