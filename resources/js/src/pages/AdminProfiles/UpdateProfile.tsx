@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IRootState } from '../../store';
@@ -72,7 +72,7 @@ const UpdateProfile = () => {
         register,
         handleSubmit,
         setValue,
-
+        control,
         formState: { errors },
     } = useForm<LoginFormInputs>({
         resolver: zodResolver(registerSchema),
@@ -193,9 +193,20 @@ const UpdateProfile = () => {
                             <div className="w-full flex flex-col justify-center">
                                 <div className="w-full flex items-center gap-2  space-between">
                                     <label htmlFor="pan">Pan</label>
-                                    <input type="checkbox" className="mb-2 rounded-md" id="pan_verified" {...register('pan_verified')} placeholder="Enter Pan" />
+                                    <Controller
+                                        name="pan"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <input
+                                                id="pan"
+                                                placeholder="Enter Pan number"
+                                                {...field}
+                                                value={field.value?.toUpperCase()}
+                                                className={errors.pan ? 'border-red-500 form-input' : 'form-input'}
+                                            />
+                                        )}
+                                    />{' '}
                                 </div>
-                                <input id="pan" type="text" {...register('pan')} className="form-input" placeholder="Enter Pan" />
                                 {errors.pan && <span className="text-red-600">{errors.pan.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">

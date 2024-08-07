@@ -135,27 +135,6 @@ const Index = () => {
         },
     ];
 
-    const Variable = {
-        total:
-            level1 * 1 +
-            level2 * level1 * 1 +
-            level3 * level2 * level1 * 1 +
-            level4 * level3 * (level2 * level1 * 1) +
-            level5 * level4 * (level3 * (level2 * level1 * 1)) +
-            level6 * level5 * (level4 * (level3 * (level2 * level1 * 1))) +
-            level7 * level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))) +
-            level8 * level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))),
-        income:
-            level1 * 1 * 100 +
-            level2 * level1 * 1 * 50 +
-            level3 * level2 * level1 * 1 * 50 +
-            level4 * level3 * (level2 * level1 * 1) * 50 +
-            level5 * level4 * (level3 * (level2 * level1 * 1)) * 50 +
-            level6 * level5 * (level4 * (level3 * (level2 * level1 * 1))) * 50 +
-            level7 * level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1)))) * 50 +
-            level8 * level7 * (level6 * (level5 * (level4 * (level3 * (level2 * level1 * 1))))) * 50,
-    };
-
     return (
         <div>
             <div className="h-full w-full grid grid-cols-2 max-md:grid-cols-1 content-between gap-5">
@@ -214,7 +193,7 @@ const Index = () => {
                                 <path opacity="0.5" d="M21 7.5L12 12M12 12L3 7.5M12 12V21.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                             </svg>
                         </div>
-                        <h5 className="text-lg font-semibold mb-3.5 dark:text-white-light">Make Payment</h5>
+                        <h5 className="text-lg font-semibold mb-3.5 dark:text-white-light">{User?.profile?.profile_no ? 'Payment Done' : 'Make Payment'}</h5>
                         <p className="text-white-dark text-[15px]  mb-3.5">{User?.profile?.profile_no ? 'You have Already Made your payment' : 'You have not made any payments yet.'}</p>
                         {!User?.profile?.profile_no && (
                             <button onClick={callapi} type="button" className="text-primary font-semibold hover:underline group">
@@ -455,7 +434,7 @@ const Index = () => {
                         </table>
                     </div>
                 </div>
-                <div className="panel col-span-2">
+                {/* <div className="panel col-span-2">
                     <div className="flex items-center justify-between mb-5">
                         <h5 className="font-semibold text-lg dark:text-white-light">Calculator</h5>
                     </div>
@@ -500,7 +479,7 @@ const Index = () => {
                                         <input type="number" className="form-input" placeholder="Enter Level 4" onChange={(e) => setLevel4(e.target.value)} value={level4} />
                                     </td>
                                     <td>{level4 && level4 * (level3 * (level2 * level1 * 1))}</td>
-                                    <td>{level5 && level4 * (level3 * (level2 * level1 * 1)) * 50}</td>
+                                    <td>{level4 && level4 * (level3 * (level2 * level1 * 1)) * 50}</td>
                                 </tr>
                                 <tr>
                                     <td>Level 5</td>
@@ -543,7 +522,7 @@ const Index = () => {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="col-span-2 "></div>
             </div>

@@ -14,6 +14,7 @@ const ShoppingSoftware = lazy(() => import('../pages/Contactsbelow/ShoppingcartS
 const ShoppingMall = lazy(() => import('../pages/ShoppingMal/ShoppingCart'));
 const ClubEmpire = lazy(() => import('../components/ClubMembership/Empire'));
 const ClubMembership = lazy(() => import('../components/ClubMembership/ClubMemberShip'));
+const Calculator = lazy(() => import('../pages/Calculator'));
 const routes = [
     // dashboard
     {
@@ -89,6 +90,11 @@ const routes = [
     {
         path: '/empire',
         element: <ClubEmpire />,
+        layout: 'default',
+    },
+    {
+        path: '/calculator',
+        element: <Calculator />,
         layout: 'default',
     },
 ];

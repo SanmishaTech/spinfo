@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
@@ -49,6 +49,8 @@ const RegisterBoaxed = () => {
 
     const {
         register,
+        control,
+        setValue,
         handleSubmit,
         formState: { errors },
     } = useForm<LoginFormInputs>({
@@ -125,7 +127,13 @@ const RegisterBoaxed = () => {
                         </div>
                         <div>
                             <label htmlFor="pan">Pan</label>
-                            <input id="pan" type="text" {...register('pan')} className="form-input" placeholder="Enter Pan" />
+                            <Controller
+                                name="pan"
+                                control={control}
+                                render={({ field }) => (
+                                    <input id="pan" placeholder="Enter Pan number" {...field} value={field.value.toUpperCase()} className={errors.pan ? 'border-red-500 form-input' : 'form-input'} />
+                                )}
+                            />{' '}
                             {errors.pan && <span className="text-red-600">{errors.pan.message}</span>}
                         </div>
                         <div>
