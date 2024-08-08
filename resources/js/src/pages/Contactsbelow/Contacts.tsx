@@ -5,9 +5,11 @@ import { setPageTitle } from '../../store/themeConfigSlice';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Contacts = () => {
     const { id, refid } = useParams();
+    const navigate = useNavigate();
     const [Profiles, setProfiles] = useState([]);
     const User = JSON.parse(localStorage.getItem('user'));
     useEffect(() => {
@@ -25,7 +27,7 @@ const Contacts = () => {
             console.log(response);
         };
         response();
-    }, [User?.profile?.id]);
+    }, [User?.profile?.id, id]);
     return (
         <div>
             <div className="panel col-span-2">
@@ -46,7 +48,7 @@ const Contacts = () => {
                                 User?.profile &&
                                 Profiles?.map((data, index) => {
                                     return (
-                                        <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={index}>
+                                        <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => navigate(`/contactedit/${data?.id}`)} key={index}>
                                             <td>{data?.profile_no}</td>
                                             <td>{data?.name}</td>
                                             <td>

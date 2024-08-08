@@ -221,7 +221,7 @@ const Header = () => {
                                 <ul className="text-dark dark:text-white-dark !py-0 w-[230px] font-semibold dark:text-white-light/90">
                                     <li>
                                         <div className="flex items-center px-4 py-4">
-                                            <span className="flex justify-center items-center w-20 h-20 text-center rounded-full object-cover bg-success text-2xl text-white">
+                                            <span className="flex justify-center items-center w-20 h-20 text-center rounded-full object-cover bg-success text-2xl text-white dark:bg-success-light">
                                                 {getInitials(User?.profile?.name)}
                                             </span>
                                             <div className="ltr:pl-4 rtl:pr-4 truncate">

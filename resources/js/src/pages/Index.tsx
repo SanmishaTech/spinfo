@@ -412,7 +412,7 @@ const Index = () => {
                                     User?.profile &&
                                     Profiles?.map((data, index) => {
                                         return (
-                                            <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => window.open(`/contactedit/${data?.id}`)} key={index}>
+                                            <tr className="hover:bg-[#e0e6ed] dark:hover:bg-[#1a2941] cursor-pointer" onClick={() => Navigate(`/contactedit/${data?.id}`)} key={index}>
                                                 <td>{data?.profile_no}</td>
                                                 <td>{data?.name}</td>
                                                 <td>
