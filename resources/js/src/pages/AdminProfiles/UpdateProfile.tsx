@@ -191,8 +191,10 @@ const UpdateProfile = () => {
                                 {errors.mobile && <span className="text-red-600">{errors.mobile.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
-                                <div className="w-full flex items-center gap-2  space-between">
-                                    <label htmlFor="pan">Pan</label>
+                                <div className="w-full flex  gap-2  space-start flex-col items-start">
+                                    <label className=" text-sm font-semibold" htmlFor="pan">
+                                        Pan
+                                    </label>
                                     <Controller
                                         name="pan"
                                         control={control}

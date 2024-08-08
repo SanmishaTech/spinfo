@@ -131,7 +131,7 @@ const RegisterBoaxed = () => {
                                 name="pan"
                                 control={control}
                                 render={({ field }) => (
-                                    <input id="pan" placeholder="Enter Pan number" {...field} value={field.value.toUpperCase()} className={errors.pan ? 'border-red-500 form-input' : 'form-input'} />
+                                    <input id="pan" placeholder="Enter Pan number" {...field} value={field?.value?.toUpperCase()} className={errors.pan ? 'border-red-500 form-input' : 'form-input'} />
                                 )}
                             />{' '}
                             {errors.pan && <span className="text-red-600">{errors.pan.message}</span>}
