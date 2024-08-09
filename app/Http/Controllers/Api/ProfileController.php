@@ -51,7 +51,7 @@ class ProfileController extends BaseController
          // $user = Auth::user();
          Log::info('Fetching profile for profile_no: ' . $profile_no);
           $profile = Profile::where('profile_no',$profile_no)->get();
-          return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
+          return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], "Profiles Retrived successfully");
       }
 
 
@@ -135,7 +135,8 @@ class ProfileController extends BaseController
     /**
      *  Get Current Month Count
      */
-    public function getCurrentMonthCount(){
+    public function getCurrentMonthCount(): JsonResponse
+    {
           $profile_id = auth()->user()->profile->id;
 
           $startOfMonth = now()->startOfMonth()->toDateString();

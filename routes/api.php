@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\InvoiceController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ProfileController;
 
@@ -32,7 +33,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('profiles/{parent_id}/get_profiles', [ProfileController::class, 'getProfiles']); 
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
     Route::get('current_month_count', [ProfileController::class, 'getCurrentMonthCount']); 
-
+    Route::get('/generate_invoice', [InvoiceController::class, 'generateInvoice']); 
 });
 
 Route::get('profiles/{profile_no}/get_ref_profile', [ProfileController::class, 'getProfileByProfileNo'])->where('profile_no', '[A-Za-z0-9]+');  //this must be get

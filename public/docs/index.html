@@ -93,8 +93,8 @@
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-GETapi-profiles--parent_id--get_profiles">
                                 <a href="#profile-management-GETapi-profiles--parent_id--get_profiles">GET api/profiles/{parent_id}/get_profiles</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="profile-management-GETapi-currnet_month_count">
-                                <a href="#profile-management-GETapi-currnet_month_count">Get Current Month Count</a>
+                                                                                <li class="tocify-item level-2" data-unique="profile-management-GETapi-current_month_count">
+                                <a href="#profile-management-GETapi-current_month_count">Get Current Month Count</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-GETapi-profiles--profile_no--get_ref_profile">
                                 <a href="#profile-management-GETapi-profiles--profile_no--get_ref_profile">GET api/profiles/{profile_no}/get_ref_profile</a>
@@ -163,7 +163,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/payment/placeat';
+$url = 'http://localhost:8000/api/payment/reprehenderit';
 $response = $client-&gt;get(
     $url,
     [
@@ -180,7 +180,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/payment/placeat"
+    "http://localhost:8000/api/payment/reprehenderit"
 );
 
 const headers = {
@@ -301,10 +301,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="profile_id"                data-endpoint="GETapi-payment--profile_id-"
-               value="placeat"
+               value="reprehenderit"
                data-component="url">
     <br>
-<p>The ID of the profile. Example: <code>placeat</code></p>
+<p>The ID of the profile. Example: <code>reprehenderit</code></p>
             </div>
                     </form>
 
@@ -471,7 +471,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/profiles/laboriosam';
+$url = 'http://localhost:8000/api/profiles/itaque';
 $response = $client-&gt;get(
     $url,
     [
@@ -488,7 +488,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/profiles/laboriosam"
+    "http://localhost:8000/api/profiles/itaque"
 );
 
 const headers = {
@@ -609,10 +609,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-profiles--id-"
-               value="laboriosam"
+               value="itaque"
                data-component="url">
     <br>
-<p>The ID of the profile. Example: <code>laboriosam</code></p>
+<p>The ID of the profile. Example: <code>itaque</code></p>
             </div>
                     </form>
 
@@ -629,7 +629,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/profiles/quidem';
+$url = 'http://localhost:8000/api/profiles/dolorem';
 $response = $client-&gt;put(
     $url,
     [
@@ -640,19 +640,19 @@ $response = $client-&gt;put(
         ],
         'json' =&gt; [
             'name' =&gt; 'quia',
-            'mobile' =&gt; 'rerum',
-            'pan' =&gt; 'mollitia',
-            'address_1' =&gt; 'hic',
-            'address_2' =&gt; 'libero',
-            'city' =&gt; 'tenetur',
-            'state' =&gt; 'blanditiis',
-            'pincode' =&gt; 'quam',
-            'bank_name' =&gt; 'eos',
-            'account_name' =&gt; 'autem',
-            'account_no' =&gt; 'veniam',
-            'ifsc' =&gt; 'odit',
-            'business_name' =&gt; 'accusamus',
-            'gstin' =&gt; 'temporibus',
+            'mobile' =&gt; 'omnis',
+            'pan' =&gt; 'est',
+            'address_1' =&gt; 'iste',
+            'address_2' =&gt; 'quasi',
+            'city' =&gt; 'rerum',
+            'state' =&gt; 'ut',
+            'pincode' =&gt; 'maiores',
+            'bank_name' =&gt; 'maxime',
+            'account_name' =&gt; 'eos',
+            'account_no' =&gt; 'dolorem',
+            'ifsc' =&gt; 'dolore',
+            'business_name' =&gt; 'labore',
+            'gstin' =&gt; 'aut',
         ],
     ]
 );
@@ -662,7 +662,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/profiles/quidem"
+    "http://localhost:8000/api/profiles/dolorem"
 );
 
 const headers = {
@@ -673,19 +673,19 @@ const headers = {
 
 let body = {
     "name": "quia",
-    "mobile": "rerum",
-    "pan": "mollitia",
-    "address_1": "hic",
-    "address_2": "libero",
-    "city": "tenetur",
-    "state": "blanditiis",
-    "pincode": "quam",
-    "bank_name": "eos",
-    "account_name": "autem",
-    "account_no": "veniam",
-    "ifsc": "odit",
-    "business_name": "accusamus",
-    "gstin": "temporibus"
+    "mobile": "omnis",
+    "pan": "est",
+    "address_1": "iste",
+    "address_2": "quasi",
+    "city": "rerum",
+    "state": "ut",
+    "pincode": "maiores",
+    "bank_name": "maxime",
+    "account_name": "eos",
+    "account_no": "dolorem",
+    "ifsc": "dolore",
+    "business_name": "labore",
+    "gstin": "aut"
 };
 
 fetch(url, {
@@ -789,10 +789,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-profiles--id-"
-               value="quidem"
+               value="dolorem"
                data-component="url">
     <br>
-<p>The ID of the profile. Example: <code>quidem</code></p>
+<p>The ID of the profile. Example: <code>dolorem</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -812,10 +812,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="mobile"                data-endpoint="PUTapi-profiles--id-"
-               value="rerum"
+               value="omnis"
                data-component="body">
     <br>
-<p>The mobile number of the user. Example: <code>rerum</code></p>
+<p>The mobile number of the user. Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pan</code></b>&nbsp;&nbsp;
@@ -823,10 +823,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="pan"                data-endpoint="PUTapi-profiles--id-"
-               value="mollitia"
+               value="est"
                data-component="body">
     <br>
-<p>The pan number of the user. Example: <code>mollitia</code></p>
+<p>The pan number of the user. Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address_1</code></b>&nbsp;&nbsp;
@@ -834,10 +834,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="address_1"                data-endpoint="PUTapi-profiles--id-"
-               value="hic"
+               value="iste"
                data-component="body">
     <br>
-<p>The address_1 of the user. Example: <code>hic</code></p>
+<p>The address_1 of the user. Example: <code>iste</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address_2</code></b>&nbsp;&nbsp;
@@ -845,10 +845,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="address_2"                data-endpoint="PUTapi-profiles--id-"
-               value="libero"
+               value="quasi"
                data-component="body">
     <br>
-<p>The address_1 of the user. Example: <code>libero</code></p>
+<p>The address_1 of the user. Example: <code>quasi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -856,10 +856,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="PUTapi-profiles--id-"
-               value="tenetur"
+               value="rerum"
                data-component="body">
     <br>
-<p>The city of the user. Example: <code>tenetur</code></p>
+<p>The city of the user. Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -867,10 +867,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="PUTapi-profiles--id-"
-               value="blanditiis"
+               value="ut"
                data-component="body">
     <br>
-<p>The state of the user. Example: <code>blanditiis</code></p>
+<p>The state of the user. Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pincode</code></b>&nbsp;&nbsp;
@@ -878,10 +878,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="pincode"                data-endpoint="PUTapi-profiles--id-"
-               value="quam"
+               value="maiores"
                data-component="body">
     <br>
-<p>The pincode of the user. Example: <code>quam</code></p>
+<p>The pincode of the user. Example: <code>maiores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
@@ -889,10 +889,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="PUTapi-profiles--id-"
-               value="eos"
+               value="maxime"
                data-component="body">
     <br>
-<p>The bank name of the user. Example: <code>eos</code></p>
+<p>The bank name of the user. Example: <code>maxime</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_name</code></b>&nbsp;&nbsp;
@@ -900,10 +900,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="PUTapi-profiles--id-"
-               value="autem"
+               value="eos"
                data-component="body">
     <br>
-<p>The account name of the user. Example: <code>autem</code></p>
+<p>The account name of the user. Example: <code>eos</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_no</code></b>&nbsp;&nbsp;
@@ -911,10 +911,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="account_no"                data-endpoint="PUTapi-profiles--id-"
-               value="veniam"
+               value="dolorem"
                data-component="body">
     <br>
-<p>The account number of the user. Example: <code>veniam</code></p>
+<p>The account number of the user. Example: <code>dolorem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ifsc</code></b>&nbsp;&nbsp;
@@ -922,10 +922,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="ifsc"                data-endpoint="PUTapi-profiles--id-"
-               value="odit"
+               value="dolore"
                data-component="body">
     <br>
-<p>The ifsc number of the user. Example: <code>odit</code></p>
+<p>The ifsc number of the user. Example: <code>dolore</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_name</code></b>&nbsp;&nbsp;
@@ -933,10 +933,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_name"                data-endpoint="PUTapi-profiles--id-"
-               value="accusamus"
+               value="labore"
                data-component="body">
     <br>
-<p>The business_name of the user. Example: <code>accusamus</code></p>
+<p>The business_name of the user. Example: <code>labore</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gstin</code></b>&nbsp;&nbsp;
@@ -944,10 +944,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="gstin"                data-endpoint="PUTapi-profiles--id-"
-               value="temporibus"
+               value="aut"
                data-component="body">
     <br>
-<p>The gstin of the user. Example: <code>temporibus</code></p>
+<p>The gstin of the user. Example: <code>aut</code></p>
         </div>
         </form>
 
@@ -964,7 +964,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/profiles/tempora/get_profiles';
+$url = 'http://localhost:8000/api/profiles/aut/get_profiles';
 $response = $client-&gt;get(
     $url,
     [
@@ -981,7 +981,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/profiles/tempora/get_profiles"
+    "http://localhost:8000/api/profiles/aut/get_profiles"
 );
 
 const headers = {
@@ -1102,27 +1102,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="parent_id"                data-endpoint="GETapi-profiles--parent_id--get_profiles"
-               value="tempora"
+               value="aut"
                data-component="url">
     <br>
-<p>The ID of the parent. Example: <code>tempora</code></p>
+<p>The ID of the parent. Example: <code>aut</code></p>
             </div>
                     </form>
 
-                    <h2 id="profile-management-GETapi-currnet_month_count">Get Current Month Count</h2>
+                    <h2 id="profile-management-GETapi-current_month_count">Get Current Month Count</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-currnet_month_count">
+<span id="example-requests-GETapi-current_month_count">
 <blockquote>Example request:</blockquote>
 
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/currnet_month_count';
+$url = 'http://localhost:8000/api/current_month_count';
 $response = $client-&gt;get(
     $url,
     [
@@ -1139,7 +1139,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/currnet_month_count"
+    "http://localhost:8000/api/current_month_count"
 );
 
 const headers = {
@@ -1155,7 +1155,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-currnet_month_count">
+<span id="example-responses-GETapi-current_month_count">
             <blockquote>
             <p>Example response (401):</p>
         </blockquote>
@@ -1173,43 +1173,43 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-currnet_month_count" hidden>
+<span id="execution-results-GETapi-current_month_count" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-currnet_month_count"></span>:
+                id="execution-response-status-GETapi-current_month_count"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-currnet_month_count"
+    <pre class="json"><code id="execution-response-content-GETapi-current_month_count"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-currnet_month_count" hidden>
+<span id="execution-error-GETapi-current_month_count" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-currnet_month_count">
+    <pre><code id="execution-error-message-GETapi-current_month_count">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-currnet_month_count" data-method="GET"
-      data-path="api/currnet_month_count"
+<form id="form-GETapi-current_month_count" data-method="GET"
+      data-path="api/current_month_count"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-currnet_month_count', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-current_month_count', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-currnet_month_count"
-                    onclick="tryItOut('GETapi-currnet_month_count');">Try it out ⚡
+                    id="btn-tryout-GETapi-current_month_count"
+                    onclick="tryItOut('GETapi-current_month_count');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-currnet_month_count"
-                    onclick="cancelTryOut('GETapi-currnet_month_count');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-current_month_count"
+                    onclick="cancelTryOut('GETapi-current_month_count');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-currnet_month_count"
+                    id="btn-executetryout-GETapi-current_month_count"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1217,7 +1217,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/currnet_month_count</code></b>
+            <b><code>api/current_month_count</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1225,7 +1225,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-currnet_month_count"
+                              name="Content-Type"                data-endpoint="GETapi-current_month_count"
                value="application/json"
                data-component="header">
     <br>
@@ -1236,7 +1236,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-currnet_month_count"
+                              name="Accept"                data-endpoint="GETapi-current_month_count"
                value="application/json"
                data-component="header">
     <br>
@@ -1247,7 +1247,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization"                data-endpoint="GETapi-currnet_month_count"
+                              name="Authorization"                data-endpoint="GETapi-current_month_count"
                value="Bearer "
                data-component="header">
     <br>
@@ -1268,7 +1268,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost:8000/api/profiles/PeC/get_ref_profile';
+$url = 'http://localhost:8000/api/profiles/w/get_ref_profile';
 $response = $client-&gt;get(
     $url,
     [
@@ -1285,7 +1285,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/profiles/PeC/get_ref_profile"
+    "http://localhost:8000/api/profiles/w/get_ref_profile"
 );
 
 const headers = {
@@ -1312,7 +1312,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -1412,10 +1412,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="profile_no"                data-endpoint="GETapi-profiles--profile_no--get_ref_profile"
-               value="PeC"
+               value="w"
                data-component="url">
     <br>
-<p>Example: <code>PeC</code></p>
+<p>Example: <code>w</code></p>
             </div>
                     </form>
 
@@ -1446,14 +1446,14 @@ $response = $client-&gt;post(
             'Authorization' =&gt; 'Bearer ',
         ],
         'json' =&gt; [
-            'name' =&gt; 'btjlhmrztzeqfswbbg',
-            'email' =&gt; 'hmarquardt@example.com',
-            'mobile' =&gt; '+:8',
-            'pan' =&gt; 'ImbzP2646t',
-            'password' =&gt; ';ZnT^70tY5&amp;{Xz(p',
-            'password_confirmation' =&gt; 'nam',
-            'parent_id' =&gt; 'non',
-            'ref_id' =&gt; 'et',
+            'name' =&gt; 'javpqcakoujaiptelpnwfrbvc',
+            'email' =&gt; 'dgrant@example.com',
+            'mobile' =&gt; '+(:0',
+            'pan' =&gt; 'XllJp1818U',
+            'password' =&gt; '9P;pP}',
+            'password_confirmation' =&gt; 'tempore',
+            'parent_id' =&gt; 'velit',
+            'ref_id' =&gt; 'dolor',
         ],
     ]
 );
@@ -1473,14 +1473,14 @@ const headers = {
 };
 
 let body = {
-    "name": "btjlhmrztzeqfswbbg",
-    "email": "hmarquardt@example.com",
-    "mobile": "+:8",
-    "pan": "ImbzP2646t",
-    "password": ";ZnT^70tY5&amp;{Xz(p",
-    "password_confirmation": "nam",
-    "parent_id": "non",
-    "ref_id": "et"
+    "name": "javpqcakoujaiptelpnwfrbvc",
+    "email": "dgrant@example.com",
+    "mobile": "+(:0",
+    "pan": "XllJp1818U",
+    "password": "9P;pP}",
+    "password_confirmation": "tempore",
+    "parent_id": "velit",
+    "ref_id": "dolor"
 };
 
 fetch(url, {
@@ -1580,10 +1580,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="btjlhmrztzeqfswbbg"
+               value="javpqcakoujaiptelpnwfrbvc"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>btjlhmrztzeqfswbbg</code></p>
+<p>Must not be greater than 255 characters. Example: <code>javpqcakoujaiptelpnwfrbvc</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1591,10 +1591,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="hmarquardt@example.com"
+               value="dgrant@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>hmarquardt@example.com</code></p>
+<p>Must be a valid email address. Example: <code>dgrant@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>mobile</code></b>&nbsp;&nbsp;
@@ -1602,10 +1602,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="mobile"                data-endpoint="POSTapi-register"
-               value="+:8"
+               value="+(:0"
                data-component="body">
     <br>
-<p>Must match the regex /^+(?:\d{1}. Example: <code>+:8</code></p>
+<p>Must match the regex /^+(?:\d{1}. Example: <code>+(:0</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pan</code></b>&nbsp;&nbsp;
@@ -1613,10 +1613,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="pan"                data-endpoint="POSTapi-register"
-               value="ImbzP2646t"
+               value="XllJp1818U"
                data-component="body">
     <br>
-<p>Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/. Example: <code>ImbzP2646t</code></p>
+<p>Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/. Example: <code>XllJp1818U</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1624,10 +1624,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value=";ZnT^70tY5&{Xz(p"
+               value="9P;pP}"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>;ZnT^70tY5&amp;{Xz(p</code></p>
+<p>Must be at least 6 characters. Example: <code>9P;pP}</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -1635,10 +1635,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-register"
-               value="nam"
+               value="tempore"
                data-component="body">
     <br>
-<p>Example: <code>nam</code></p>
+<p>Example: <code>tempore</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
@@ -1646,10 +1646,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="parent_id"                data-endpoint="POSTapi-register"
-               value="non"
+               value="velit"
                data-component="body">
     <br>
-<p>Example: <code>non</code></p>
+<p>Example: <code>velit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ref_id</code></b>&nbsp;&nbsp;
@@ -1657,10 +1657,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ref_id"                data-endpoint="POSTapi-register"
-               value="et"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
         </form>
 
@@ -1687,8 +1687,8 @@ $response = $client-&gt;post(
             'Authorization' =&gt; 'Bearer ',
         ],
         'json' =&gt; [
-            'email' =&gt; 'zbernhard@example.org',
-            'password' =&gt; 'XyO.."n(pV-!@',
+            'email' =&gt; 'armstrong.estrella@example.com',
+            'password' =&gt; 'UZo3bC?g~#[',
         ],
     ]
 );
@@ -1708,8 +1708,8 @@ const headers = {
 };
 
 let body = {
-    "email": "zbernhard@example.org",
-    "password": "XyO..\"n(pV-!@"
+    "email": "armstrong.estrella@example.com",
+    "password": "UZo3bC?g~#["
 };
 
 fetch(url, {
@@ -1809,10 +1809,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="zbernhard@example.org"
+               value="armstrong.estrella@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>zbernhard@example.org</code></p>
+<p>Must be a valid email address. Example: <code>armstrong.estrella@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1820,10 +1820,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="XyO.."n(pV-!@"
+               value="UZo3bC?g~#["
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>XyO.."n(pV-!@</code></p>
+<p>Must be at least 6 characters. Example: <code>UZo3bC?g~#[</code></p>
         </div>
         </form>
 
