@@ -146,6 +146,7 @@ const UpdateProfile = () => {
         data.mobile = data.mobile.replace('-', '');
         console.log(data);
         CallApi(data);
+        navigate('/dashboard');
     };
 
     return (
