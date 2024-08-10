@@ -34,7 +34,7 @@ paths:
         in: path
         name: profile_id
         description: 'The ID of the profile.'
-        example: placeat
+        example: reprehenderit
         required: true
         schema:
           type: string
@@ -104,62 +104,62 @@ paths:
                 mobile:
                   type: string
                   description: 'The mobile number of the user.'
-                  example: rerum
+                  example: omnis
                 pan:
                   type: string
                   description: 'The pan number of the user.'
-                  example: mollitia
+                  example: est
                 address_1:
                   type: string
                   description: 'The address_1 of the user.'
-                  example: hic
+                  example: iste
                 address_2:
                   type: string
                   description: 'The address_1 of the user.'
-                  example: libero
+                  example: quasi
                 city:
                   type: string
                   description: 'The city of the user.'
-                  example: tenetur
+                  example: rerum
                 state:
                   type: string
                   description: 'The state of the user.'
-                  example: blanditiis
+                  example: ut
                 pincode:
                   type: string
                   description: 'The pincode of the user.'
-                  example: quam
+                  example: maiores
                 bank_name:
                   type: string
                   description: 'The bank name of the user.'
-                  example: eos
+                  example: maxime
                 account_name:
                   type: string
                   description: 'The account name of the user.'
-                  example: autem
+                  example: eos
                 account_no:
                   type: string
                   description: 'The account number of the user.'
-                  example: veniam
+                  example: dolorem
                 ifsc:
                   type: string
                   description: 'The ifsc number of the user.'
-                  example: odit
+                  example: dolore
                 business_name:
                   type: string
                   description: 'The business_name of the user.'
-                  example: accusamus
+                  example: labore
                 gstin:
                   type: string
                   description: 'The gstin of the user.'
-                  example: temporibus
+                  example: aut
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the profile.'
-        example: laboriosam
+        example: itaque
         required: true
         schema:
           type: string
@@ -190,11 +190,11 @@ paths:
         in: path
         name: parent_id
         description: 'The ID of the parent.'
-        example: tempora
+        example: aut
         required: true
         schema:
           type: string
-  /api/currnet_month_count:
+  /api/current_month_count:
     get:
       summary: 'Get Current Month Count'
       operationId: getCurrentMonthCount
@@ -255,7 +255,7 @@ paths:
         in: path
         name: profile_no
         description: ''
-        example: PeC
+        example: w
         required: true
         schema:
           type: string
@@ -278,35 +278,35 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: btjlhmrztzeqfswbbg
+                  example: javpqcakoujaiptelpnwfrbvc
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: hmarquardt@example.com
+                  example: dgrant@example.com
                 mobile:
                   type: string
                   description: 'Must match the regex /^\+(?:\d{1}.'
-                  example: '+:8'
+                  example: '+(:0'
                 pan:
                   type: string
                   description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
-                  example: ImbzP2646t
+                  example: XllJp1818U
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: ';ZnT^70tY5&{Xz(p'
+                  example: '9P;pP}'
                 password_confirmation:
                   type: string
                   description: ''
-                  example: nam
+                  example: tempore
                 parent_id:
                   type: string
                   description: ''
-                  example: non
+                  example: velit
                 ref_id:
                   type: string
                   description: ''
-                  example: et
+                  example: dolor
               required:
                 - name
                 - email
@@ -336,11 +336,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: zbernhard@example.org
+                  example: armstrong.estrella@example.com
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: 'XyO.."n(pV-!@'
+                  example: 'UZo3bC?g~#['
               required:
                 - email
                 - password

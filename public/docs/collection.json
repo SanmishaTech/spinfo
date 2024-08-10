@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "139c2e85-2d1a-48d3-87b1-617ef50e9934",
+        "_postman_id": "e661cd1a-0d65-40b5-8fb1-56032b920f75",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -31,7 +31,7 @@
                                 {
                                     "id": "profile_id",
                                     "key": "profile_id",
-                                    "value": "placeat",
+                                    "value": "reprehenderit",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -141,7 +141,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "laboriosam",
+                                    "value": "itaque",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -197,7 +197,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "quidem",
+                                    "value": "dolorem",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -215,7 +215,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quia\",\"mobile\":\"rerum\",\"pan\":\"mollitia\",\"address_1\":\"hic\",\"address_2\":\"libero\",\"city\":\"tenetur\",\"state\":\"blanditiis\",\"pincode\":\"quam\",\"bank_name\":\"eos\",\"account_name\":\"autem\",\"account_no\":\"veniam\",\"ifsc\":\"odit\",\"business_name\":\"accusamus\",\"gstin\":\"temporibus\"}"
+                            "raw": "{\"name\":\"quia\",\"mobile\":\"omnis\",\"pan\":\"est\",\"address_1\":\"iste\",\"address_2\":\"quasi\",\"city\":\"rerum\",\"state\":\"ut\",\"pincode\":\"maiores\",\"bank_name\":\"maxime\",\"account_name\":\"eos\",\"account_no\":\"dolorem\",\"ifsc\":\"dolore\",\"business_name\":\"labore\",\"gstin\":\"aut\"}"
                         },
                         "description": "",
                         "auth": {
@@ -236,7 +236,7 @@
                                 {
                                     "id": "parent_id",
                                     "key": "parent_id",
-                                    "value": "tempora",
+                                    "value": "aut",
                                     "description": "The ID of the parent."
                                 }
                             ]
@@ -285,9 +285,9 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/currnet_month_count",
+                            "path": "api\/current_month_count",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/currnet_month_count"
+                            "raw": "{{baseUrl}}\/api\/current_month_count"
                         },
                         "method": "GET",
                         "header": [
@@ -340,7 +340,7 @@
                                 {
                                     "id": "profile_no",
                                     "key": "profile_no",
-                                    "value": "PeC",
+                                    "value": "w",
                                     "description": ""
                                 }
                             ]
@@ -379,7 +379,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "58"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -420,7 +420,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"btjlhmrztzeqfswbbg\",\"email\":\"hmarquardt@example.com\",\"mobile\":\"+:8\",\"pan\":\"ImbzP2646t\",\"password\":\";ZnT^70tY5&{Xz(p\",\"password_confirmation\":\"nam\",\"parent_id\":\"non\",\"ref_id\":\"et\"}"
+                            "raw": "{\"name\":\"javpqcakoujaiptelpnwfrbvc\",\"email\":\"dgrant@example.com\",\"mobile\":\"+(:0\",\"pan\":\"XllJp1818U\",\"password\":\"9P;pP}\",\"password_confirmation\":\"tempore\",\"parent_id\":\"velit\",\"ref_id\":\"dolor\"}"
                         },
                         "description": "",
                         "auth": {
@@ -451,7 +451,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"zbernhard@example.org\",\"password\":\"XyO..\\\"n(pV-!@\"}"
+                            "raw": "{\"email\":\"armstrong.estrella@example.com\",\"password\":\"UZo3bC?g~#[\"}"
                         },
                         "description": "",
                         "auth": {
