@@ -6,7 +6,7 @@
     <title>Invoice</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; 
             font-size: 14px;
             color: #000;
         }
@@ -50,7 +50,7 @@
         .invoice-box .totals td {
             border: none;
             text-align: right;
-            padding: 5px 0;
+            padding: 5px 5px;
         }
         .invoice-box .totals td:last-child {
             width: 100px;
@@ -59,7 +59,7 @@
         .invoice-box .round-off td {
             border: none;
             text-align: right;
-            padding: 5px 0;
+            padding: 5px 5px;
         }
         .invoice-box .round-off td:last-child {
             border-bottom: 2px solid #000;
@@ -73,6 +73,7 @@
         .text-left {
             text-align: left;
         }
+     
     </style>
 </head>
 <body>
@@ -87,24 +88,28 @@
             </tr> --}}
 
             <tr class="information">
-                <td colspan="3">
-                    <strong>{{$profile->name}}</strong><br>
-                    HafyMish Technologies<br>
+                <td colspan="3" class="mt">
+                  <strong>SP Infocom</strong><br>
+                    {{-- HafyMish Technologies<br> --}}
                     {{$profile->state}} - {{$profile->pincode}}<br>
                     GST: {{$profile->gstin}}
                 </td>
                 <td colspan="3" class="text-end">
-                    Invoice No: 22<br>
+                    Invoice No: 001<br>
                     Date: {{\Carbon\Carbon::now()->format('d-m-Y')}}<br>
                     <strong>To</strong><br>
-                    Counter Sales<br>
-                    State: {{$profile->state}}
+                    {{$profile->name}}<br>
+                    {{$profile->city}},
+                    {{$profile->state}} <br>
+                    Mobile{{$profile->mobile}} <br>
+                    Email: {{$user->email}}       
+                    <br><br><br>
                 </td>
             </tr>
             
             <tr class="heading">
                 <th>Sl.</th>
-                <th>Product Name [HSN]</th>
+                <th>Product Name</th>
                 <th>Gst%</th>
                 <th>Rate</th>
                 <th>Qty</th>
@@ -113,19 +118,11 @@
 
             <tr class="item">
                 <td>1</td>
-                <td>Jetter Pen Reynolds [4114]</td>
-                <td>18</td>
-                <td>40.00</td>
+                <td>Ecommerce Portal</td>
+                <td>18%</td>
+                <td>₹1000.00</td>
                 <td>1</td>
-                <td>40.00</td>
-            </tr>
-            <tr class="item">
-                <td>1</td>
-                <td>Jetter Pen Reynolds [4114]</td>
-                <td>18</td>
-                <td>40.00</td>
-                <td>1</td>
-                <td>40.00</td>
+                <td>₹1000.00</td>
             </tr>
         </table>
 
@@ -143,27 +140,27 @@
             <tr class="totals">
                 <td colspan="4"></td>
                 <td>Total Taxable:</td>
-                <td>₹40.00</td>
+                <td>₹1000.00</td>    
             </tr>
             <tr class="totals">
                 <td colspan="4"></td>
                 <td>Total Tax:</td>
-                <td>₹7.20</td>
+                <td>₹180.00</td>
             </tr>
             <tr class="round-off">
                 <td colspan="4"></td>
                 <td>Round-off:</td>
-                <td>-₹0.20</td>
+                <td>₹0.00</td>
             </tr>
             <tr class="round-off">
                 <td colspan="4"></td>
                 <td><strong>Total:</strong></td>
-                <td><strong>₹47.00</strong></td>
+                <td><strong>₹1180.00</strong></td>
             </tr>
         </table>
 
         <div class="text-center" style="margin-top: 20px;">
-            <p>GST% 18% &nbsp;&nbsp; Taxable ₹40.00 &nbsp;&nbsp; CGST ₹3.60 &nbsp;&nbsp; SGST ₹3.60</p>
+            <p>GST% 18% &nbsp;&nbsp; Taxable ₹1000.00 &nbsp;&nbsp; CGST ₹3.60&nbsp;&nbsp; SGST ₹3.60</p>
             <p>Thank you. Have a great day!</p>
         </div>
 
@@ -172,5 +169,6 @@
             <p>Signatory</p>
         </div>
     </div>
+    {{-- ₹ &#8377;  &#x20B9; --}}
 </body>
 </html>

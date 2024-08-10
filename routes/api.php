@@ -34,8 +34,10 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
     Route::get('current_month_count', [ProfileController::class, 'getCurrentMonthCount']); 
     Route::get('/generate_invoice', [InvoiceController::class, 'generateInvoice']); 
+
 });
 
 Route::get('profiles/{profile_no}/get_ref_profile', [ProfileController::class, 'getProfileByProfileNo'])->where('profile_no', '[A-Za-z0-9]+');  //this must be get
+Route::get('/show_invoice/{files}', [InvoiceController::class, 'showInvoice']); 
 
 

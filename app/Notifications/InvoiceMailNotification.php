@@ -37,11 +37,11 @@ class InvoiceMailNotification extends Notification
     {
         return (new MailMessage)
                     ->view('invoice.invoice_mail')
-                    ->subject('Invoice Mail')
                     ->attach(Storage::path($this->filePath), [
                         'as' => 'invoice.pdf',
                         'mime' => 'application/pdf',
-                    ]);
+                    ])
+                    ->subject('Invoice Mail');
     }
 
     /**
