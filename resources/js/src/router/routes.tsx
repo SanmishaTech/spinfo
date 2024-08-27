@@ -15,9 +15,6 @@ const ShoppingMall = lazy(() => import('../pages/ShoppingMal/ShoppingCart'));
 const ClubEmpire = lazy(() => import('../components/ClubMembership/Empire'));
 const ClubMembership = lazy(() => import('../components/ClubMembership/ClubMemberShip'));
 const Calculator = lazy(() => import('../pages/Calculator'));
-const Portfolio = lazy(() => import('../pages/Portfolio/portfolio'));
-const Companies = lazy(() => import('../components/Companies/Companies.tsx'));
-const Addcompanies = lazy(() => import('../components/Companies/Addcompanies'));
 const routes = [
     // dashboard
     {
@@ -41,23 +38,63 @@ const routes = [
         layout: 'blank',
     },
     {
-        path: '/register',
+        path: '/register/:id/:refid',
         element: <Register />,
         layout: 'blank',
     },
     {
-        path: '/portfolio',
-        element: <Portfolio />,
+        path: '/users/profile',
+        element: <UpdateProfile />,
         layout: 'default',
     },
     {
-        path: '/companies',
-        element: <Companies />,
+        path: '/profiles',
+        element: <AdminProfiles />,
         layout: 'default',
     },
     {
-        path: '/addcompanies',
-        element: <Addcompanies />,
+        path: '/profile/:id',
+        element: <AdminEditProfile />,
+        layout: 'default',
+    },
+    {
+        path: '/contactedit/:id',
+        element: <Contact />,
+        layout: 'default',
+    },
+    {
+        path: '/shoppingcart',
+        element: <ShoppingCart />,
+        layout: 'default',
+    },
+    {
+        path: '/ShoppingComputer',
+        element: <ShoppingCartComputer />,
+        layout: 'default',
+    },
+    {
+        path: '/ShoppingSoftware',
+        element: <ShoppingSoftware />,
+        layout: 'default',
+    },
+    {
+        path: '/shoppingmal',
+        element: <ShoppingMall />,
+        layout: 'default',
+    },
+    {
+        path: '/clubmember',
+        element: <ClubMembership />,
+        layout: 'default',
+    },
+    {
+        path: '/empire',
+        element: <ClubEmpire />,
+        layout: 'default',
+    },
+    {
+        path: '/calculator',
+        element: <Calculator />,
         layout: 'default',
     },
 ];

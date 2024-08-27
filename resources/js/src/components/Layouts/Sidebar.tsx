@@ -42,9 +42,10 @@ const Sidebar = () => {
             >
                 <div className="bg-white dark:bg-black h-full">
                     <div className="flex justify-between items-center px-4 py-3">
-                        {/* <NavLink to="/" className="main-logo flex items-center shrink-0">
+                        <NavLink to="/" className="main-logo flex items-center shrink-0">
+                            <img className="w-8 ml-[5px] flex-none" src="/assets/images/spinfo_logo2.png" alt="logo" />
                             <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline dark:text-white-light">{t('SP INFO')}</span>
-                        </NavLink> */}
+                        </NavLink>
                         <button
                             type="button"
                             className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300 rtl:rotate-180"
@@ -77,20 +78,36 @@ const Sidebar = () => {
                                     <div className={currentMenu === 'dashboard' ? 'rotate-90' : 'rtl:rotate-180'}></div>
                                 </button>
                             </li>
-                            <li onClick={() => Navigate('/portfolio')} className="menu nav-item">
-                                <button type="button" className={`nav-link group w-full ${currentMenu === 'portfolio' ? 'active' : ''}`} onClick={() => toggleMenu('portfolio')}>
+                            <li onClick={() => Navigate('/shoppingmal')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'shoppingmal' ? 'active' : ''}`} onClick={() => toggleMenu('shoppingmal')}>
                                     <div className="flex items-center">
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Portfolio')}</span>
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Shopping Mall')}</span>
                                     </div>
                                     <div className={currentMenu === 'shoppingmal' ? 'rotate-90' : 'rtl:rotate-180'}></div>
                                 </button>
                             </li>
-                            <li onClick={() => Navigate('/companies')} className="menu nav-item">
-                                <button type="button" className={`nav-link group w-full ${currentMenu === 'companies' ? 'active' : ''}`} onClick={() => toggleMenu('companies')}>
+                            <li onClick={() => Navigate('/clubmember')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'clubmember' ? 'active' : ''}`} onClick={() => toggleMenu('clubmember')}>
                                     <div className="flex items-center">
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Companies')}</span>
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Club Member')}</span>
                                     </div>
-                                    <div className={currentMenu === 'companies' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                    <div className={currentMenu === 'clubmember' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                </button>
+                            </li>
+                            <li onClick={() => Navigate('/empire')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'empire' ? 'active' : ''}`} onClick={() => toggleMenu('empire')}>
+                                    <div className="flex items-center">
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Empire')}</span>
+                                    </div>
+                                    <div className={currentMenu === 'empire' ? 'rotate-90' : 'rtl:rotate-180'}></div>
+                                </button>
+                            </li>
+                            <li onClick={() => Navigate('/calculator')} className="menu nav-item">
+                                <button type="button" className={`nav-link group w-full ${currentMenu === 'Calculator' ? 'active' : ''}`} onClick={() => toggleMenu('empire')}>
+                                    <div className="flex items-center">
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('Calculator')}</span>
+                                    </div>
+                                    <div className={currentMenu === 'empire' ? 'rotate-90' : 'rtl:rotate-180'}></div>
                                 </button>
                             </li>
                         </ul>

@@ -10,11 +10,6 @@ import 'react-international-phone/style.css';
 import { Toaster, toast } from 'sonner';
 import { IRootState } from '../../store';
 import { setPageTitle } from '../../store/themeConfigSlice';
-import { addDoc, collection, getDocs, doc, setDoc } from 'firebase/firestore';
-import { getFirestore } from 'firebase/firestore';
-import { auth } from '../../components/Firebase';
-import { app } from '../../components/Firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const registerSchema = z.object({
     name: z.string().min(1, 'Name is required'),
@@ -26,7 +21,6 @@ const registerSchema = z.object({
         .min(1, 'Pan is required')
         .regex(/^[a-zA-Z]{5}([0-9]){4}([a-zA-Z0-9]){1}?$/),
     password_confirmation: z.string().min(1, 'Password confirmation is required'),
-    dob: z.any(),
 });
 
 type LoginFormInputs = z.infer<typeof registerSchema>;
@@ -37,30 +31,21 @@ const RegisterBoaxed = () => {
     const [profiles, setProfiles] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { id, refid } = useParams();
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-    const db = getFirestore(app);
 
-    function sumDigits(num) {
-        // Convert the number to a string, split into individual characters (digits),
-        // convert them back to numbers, and sum them up
-        return num
-            .toString()
-            .split('')
-            .map(Number)
-            .reduce((a, b) => a + b, 0);
-    }
-    // useEffect(() => {
-    //     axios
-    //         .get(`/api/profiles/${refid}/get_ref_profile`, {
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Authorization: 'Bearer ' + localStorage.getItem('token'),
-    //             },
-    //         })
-    //         .then((response: any) => {
-    //             setProfiles(response?.data?.data?.Profiles);
-    //         });
-    // }, []);
+    useEffect(() => {
+        axios
+            .get(`/api/profiles/${refid}/get_ref_profile`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            })
+            .then((response: any) => {
+                setProfiles(response?.data?.data?.Profiles);
+            });
+    }, []);
 
     const {
         register,
@@ -72,52 +57,37 @@ const RegisterBoaxed = () => {
         resolver: zodResolver(registerSchema),
     });
 
-    function sumDateDigits(dateStr) {
-        // Remove non-digit characters, split into individual digits, convert them to numbers, and sum them up
-        return dateStr
-            .replace(/\D/g, '') // Remove non-digit characters (e.g., dashes)
-            .split('') // Split into individual characters (digits)
-            .map(Number) // Convert to numbers
-            .reduce((a, b) => a + b, 0); // Sum them up
-    }
+    const CallApi = async (data: LoginFormInputs) => {
+        try {
+            const response = await axios.post('/api/register', data);
+            console.log(response);
+            toast.success('Registration successful');
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+            if (error.response.data.data.email) {
+                toast.error(error.response.data.data.email[0]);
+            }
+            if (error.response.data.pan) {
+                toast.error(error.response.data.data.pan[0]);
+            }
+            if (error.response.data.mobile) {
+                toast.error(error.response.data.data.mobile[0]);
+            }
+        }
+    };
 
-    useEffect(() => {
-        const date = '02-02-2000';
-        const newdate = new Date(date);
-        console.log(newdate.getDate());
-        const sum = sumDateDigits(date);
-        console.log('sum', sum);
-    }, []);
     const onSubmit = (data: LoginFormInputs) => {
         if (data.password !== data.password_confirmation) {
             toast.warning('Passwords do not match');
             return;
         }
-        // data.parent_id = id;
-        // data.ref_id = refid;
+        data.parent_id = id;
+        data.ref_id = refid;
         data.mobile = data.mobile.replace(' ', '');
         data.mobile = data.mobile.replace('-', '');
         console.log(data);
-        createUserWithEmailAndPassword(auth, data.email, data.password)
-            .then(async (userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                const userRef = doc(db, 'users', user.uid);
-                setDoc(userRef, {
-                    name: data.name,
-                    email: data.email,
-                    mobile: data.mobile,
-                    pan: data.pan,
-                    driver: sumDigits(new Date(data.dob).getDate()),
-                    conductor: sumDateDigits(data.dob),
-                    dob: data.dob,
-                });
-            })
-            .then(() => {
-                toast.success('Registration successful');
-                navigate('/');
-            });
+        CallApi(data);
     };
 
     return (
@@ -126,6 +96,7 @@ const RegisterBoaxed = () => {
                 <div className=" panel sm:w-[450px] min-h-[400px] m-6 max-w-lg w-full">
                     <h2 className="font-bold text-2xl mb-3">Sign Up</h2>
                     <p className="mb-7">Enter your email and password to Register</p>
+                    <p> You are Reffered By {profiles?.length ? profiles[0]?.name : ''}</p>
                     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label htmlFor="name">Name</label>
@@ -136,11 +107,6 @@ const RegisterBoaxed = () => {
                             <label htmlFor="email">Email</label>
                             <input id="email" type="email" {...register('email')} className="form-input" placeholder="Enter Email" />
                             {errors.email && <span className="text-red-600">{errors.email.message}</span>}
-                        </div>
-                        <div>
-                            <label htmlFor="Date of Birth">Date of birth</label>
-                            <input {...register('dob')} type="date" className="form-input" />
-                            {errors.email && <span className="text-red-600">{errors.dob.message} </span>}
                         </div>
                         <div>
                             <label htmlFor="mobile">Mobile</label>
