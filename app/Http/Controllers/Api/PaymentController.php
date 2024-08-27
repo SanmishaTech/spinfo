@@ -14,14 +14,24 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\ProfileNumberService;
 use App\Http\Resources\ProfileResource;
 use App\Http\Controllers\Api\BaseController;
+use App\Http\Controllers\Api\InvoiceController;
+
 
      /**
       * @group Payment Management
       *  `
       */
 
+
 class PaymentController extends BaseController
 {
+    public $invoiceController;
+    
+    public function __construct(InvoiceController $invoiceController)
+     {
+         $this->invoiceController = $invoiceController;
+     }
+
      /**
      *  Show Payment
      */
@@ -195,6 +205,7 @@ class PaymentController extends BaseController
          * In seed add Admin User with admin role and top@spinfo with profile with member role
          * While registerting user is always a member
          */
+             $this->invoiceController->generateInvoice();
             $user = User::find($profile->user_id);
             $user->load('profile');
         return $this->sendResponse(['user'=>new UserResource($user)], 'Payment done Successly.');

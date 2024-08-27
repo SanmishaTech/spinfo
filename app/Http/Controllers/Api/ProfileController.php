@@ -100,8 +100,8 @@ class ProfileController extends BaseController
             $profile->name = $request->input('name');
             $profile->mobile = $request->input('mobile');
             $profile->pan = $request->input('pan');
-            $profile->parent_id = $request->input('parent_id');
-            $profile->ref_id = $request->input('ref_id');
+            // $profile->parent_id = $request->input('parent_id');
+            // $profile->ref_id = $request->input('ref_id');
             $profile->registration_date = $request->input('registration_date');
             $profile->address_1 = $request->input('address_1');
             $profile->address_2 = $request->input('address_2');
