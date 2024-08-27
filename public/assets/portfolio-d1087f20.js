@@ -1,0 +1,1 @@
+import{l}from"./main-56e33d04.js";const r=()=>l("div",{className:"w-full",children:l("div",{className:"flex flex-col items-center justify-center w-full h-full bg-gray-100 p-5 rounded-lg onClick",children:"Add Stocks"})});export{r as default};
