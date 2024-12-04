@@ -86,16 +86,22 @@ class InvoiceController extends BaseController
         $mpdf->WriteHTML($html);
 
         // Define the file path for saving the PDF
-        $filePath = 'public/invoices/invoice_' . time() . '.pdf'; // Store in 'storage/app/invoices'
-
+        $filePath = 'public/invoices/invoice_' . time(). $user->id . '.pdf'; // Store in 'storage/app/invoices'
+        $fileName = basename($filePath); // Extracts 'invoice_{timestamp}{user_id}.pdf'
+        $profile->invoice_name = $fileName;
+        $profile->save();
         // Save PDF to storage
         Storage::put($filePath, $mpdf->Output('', 'S')); // Output as string and save to storage
 
         // Send the PDF as an email attachment
-        Mail::to("ghadiganesh2002@gmail.com")->send(new InvoiceMail($filePath));
+        if($user->email){
+            Mail::to($user->email)->send(new InvoiceMail($filePath));
+        }
 
+      
         // Output the PDF for download
-        return $mpdf->Output('invoice.pdf', 'D'); // Download the PDF
+        // return $mpdf->Output('invoice.pdf', 'D'); // Download the PDF
+         return $fileName;
     }
 
 
@@ -114,6 +120,28 @@ class InvoiceController extends BaseController
         $response->header('Content-Disposition', 'inline; filename="' . $files . '"');
 
         return $response;
+   }
+   
+   public function downloadInvoice(string $files)
+   {
+       // Generate the full path to the invoice in the public storage
+       $path = storage_path('app/public/invoices/' . $files);
+   
+       // Check if the file exists
+       if (!file_exists($path)) {
+           abort(404, 'Invoice not found');
+       }
+   
+       // Get the file content and MIME type
+       $fileContent = File::get($path);
+       $mimeType = \File::mimeType($path);
+   
+       // Create the response for the file download
+       $response = Response::make($fileContent, 200);
+       $response->header("Content-Type", $mimeType);
+       $response->header('Content-Disposition', 'attachment; filename="' . $files . '"'); // Set attachment to force download
+   
+       return $response;
    }
 
 

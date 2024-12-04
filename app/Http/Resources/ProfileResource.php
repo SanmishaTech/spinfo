@@ -40,6 +40,7 @@ class ProfileResource extends JsonResource
             'gstin' => $this->gstin,
             'gstin_verified' => $this->gstin_verified ? true : false,
             'direct_count' => $this->direct_count,
+            'invoice_name' => $this->invoice_name,
             'level_1' => $this->level_1,
             'level_2' => $this->level_2,
             'level_3' => $this->level_3,

@@ -174,10 +174,11 @@ class PaymentController extends BaseController
          * In seed add Admin User with admin role and top@spinfo with profile with member role
          * While registerting user is always a member
          */
-             $this->invoiceController->generateInvoice();
+           $fileName = $this->invoiceController->generateInvoice();
             $user = User::find($profile->user_id);
+        
             $user->load('profile');
-        return $this->sendResponse(['user'=>new UserResource($user)], 'Payment done Successly.');
+        return $this->sendResponse(['user'=>new UserResource($user), 'fileName'=>$fileName], 'Payment done Successly.');
     }
 
 }
