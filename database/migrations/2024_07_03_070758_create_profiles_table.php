@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             // Fields for Registration
             $table->id();
-            $table->foreignId('user_id')->constrained()->unique()->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
 
             // profile_no format MMYY000001. Reset every month
             $table->string('profile_no', 10)->nullable();

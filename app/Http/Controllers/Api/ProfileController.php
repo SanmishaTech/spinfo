@@ -15,7 +15,7 @@ use App\Http\Resources\ProfileResource;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Controllers\Api\BaseController;
 
-  /**
+    /**
      * @group Profile Management
      *
      * API for Managing Profile data
@@ -23,7 +23,7 @@ use App\Http\Controllers\Api\BaseController;
 
 class ProfileController extends BaseController
 {
-       /*
+     /*
        * All Profile
        */
     public function index(): JsonResponse

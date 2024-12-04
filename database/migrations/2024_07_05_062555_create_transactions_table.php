@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('profile_id');
             $table->date('transaction_date')->nullable();
             $table->decimal('deposite',12,2)->nullable();
             $table->decimal('withdrawal',12,2)->nullable();
