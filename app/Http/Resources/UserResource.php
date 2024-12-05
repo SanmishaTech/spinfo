@@ -22,6 +22,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'email_verified_at' => $this->email_verified_at,
+            'invoice_name' => optional($this->whenLoaded('profile'))->invoice_name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             // 'role' => $this->resource->roles->pluck('name')->toArray(), //another way of getting roles
