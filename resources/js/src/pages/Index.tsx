@@ -60,78 +60,36 @@ const Index = () => {
         getCount();
     }, []);
 
-    // const callapi = async () => {
-    //     try {
-    //         const response = await axios
-    //             .get(`/api/payment/${User?.profile?.id}`, {
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     Authorization: 'Bearer ' + localStorage.getItem('token'),
-    //                 },
-    //             })
-    //             .then((response: any) => {
-    //                 setPaymentDone(true);
-    //                 localStorage.setItem('user', JSON.stringify(response?.data?.data?.user));
-    //                 localStorage.setItem('token', response?.data?.data?.token);
-    //                 // localStorage.setItem('token', response.data.data.token);
-    //                 toast.success('Payment done Successly.');
-    //             });
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     const callapi = async () => {
         try {
-            // Make the API call
-            const response = await axios.get(`/api/payment/${User?.profile?.id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                },
-            });
-
-            // Process the response
-            setPaymentDone(true);
-            localStorage.setItem('user', JSON.stringify(response?.data?.data?.user));
-            localStorage.setItem('token', response?.data?.data?.token);
-
-            toast.success('Payment done successfully.');
-
-            // Start download logic for the invoice
-            const fileName = response?.data?.data?.fileName;  // Get the invoice path from the response
-
-            if (fileName) {
-                // Fetch the invoice file as a blob
-                const fileResponse = await axios.get(`/api/download_invoice/${fileName}`, {
-                    responseType: 'blob',  // This ensures the response is treated as binary data
+            const response = await axios
+                .get(`/api/payment/${User?.profile?.id}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
+                    },
+                })
+                .then((response: any) => {
+                    setPaymentDone(true);
+                    localStorage.setItem('user', JSON.stringify(response?.data?.data?.user));
+                    localStorage.setItem('token', response?.data?.data?.token);
+                    // localStorage.setItem('token', response.data.data.token);
+                    toast.success('Payment done Successly.');
                 });
-
-                // Create a URL for the Blob and trigger the download
-                const blob = new Blob([fileResponse.data], { type: 'application/pdf' });
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'invoice.pdf');  // Set a default file name for download
-                document.body.appendChild(link);
-                link.click();  // Trigger the download
-                link.remove();  // Clean up the DOM
-                window.URL.revokeObjectURL(url);  // Release the object URL
-            }
-
-            // End of the download logic
+            console.log(response);
         } catch (error) {
             console.log(error);
         }
     };
-
     useEffect(() => {
         if (!JSON.parse(localStorage.getItem('user'))) {
             Navigate('/');
         }
     }, [User]);
 
+    const callinvoice = async () => {
+        window.open(`/api/download_invoice/${User?.profile?.invoice_name}`, '_blank');
+    };
     useEffect(() => {
         const response = async () => {
             const response = await axios
@@ -240,6 +198,10 @@ const Index = () => {
                         </div>
                         <h5 className="text-lg font-semibold mb-3.5 dark:text-white-light">{User?.profile?.profile_no ? 'Payment Done' : 'Make Payment'}</h5>
                         <p className="text-white-dark text-[15px]  mb-3.5">{User?.profile?.profile_no ? 'You have Already Made your payment' : 'You have not made any payments yet.'}</p>
+                        <button onClick={callinvoice} type="button" className="text-primary font-semibold hover:underline group">
+                            Get Invoice
+                        </button>
+                        <br />
                         {!User?.profile?.profile_no && (
                             <button onClick={callapi} type="button" className="text-primary font-semibold hover:underline group">
                                 Make Payment{' '}
